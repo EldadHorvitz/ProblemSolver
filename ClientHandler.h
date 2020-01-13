@@ -7,6 +7,10 @@
 
 
 class ClientHandler {
+private:
+
+public:
+ // virtual  void handleClient(InputStream is );
 
 };
 
