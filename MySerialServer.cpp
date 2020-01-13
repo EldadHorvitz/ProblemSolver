@@ -4,7 +4,6 @@
 
 #include "MySerialServer.h"
 
-#define  PORT 8080
 
 using namespace std;
 
@@ -21,8 +20,7 @@ int MySerialServer::open(int port, ClientHandler client) {
     sockaddr_in address;//in means IP4
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = inet_addr("127.0.0.1");//give me any IP allocated for my machine.
-    // address.sin_addr.s_addr = inet_addr("10.0.2.2");
-    address.sin_port = htons(PORT);
+    address.sin_port = htons(port);
     //we need to convert our number
     //to a number that the network understands
 

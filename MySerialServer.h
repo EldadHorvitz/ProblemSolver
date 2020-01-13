@@ -8,13 +8,11 @@
 
 #include "Server.h"
 
-class MySerialServer : public Server {
+class MySerialServer : public server_side::Server {
 public:
     int open(int port, ClientHandler client) override;
 
 private:
-
-public:
 
 
 };
