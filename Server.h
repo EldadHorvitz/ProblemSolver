@@ -16,7 +16,7 @@
 
 namespace server_side {
     class Server {
-    private:
+    protected:
         int socketfd;
 
     public:

@@ -8,7 +8,7 @@ int main() {
 
     MySerialServer *f = new MySerialServer();
     ClientHandler *c = new ClientHandler();
-    f->open(5400, *c);
+    f->open(5600, *c);
 
     return 0;
 }

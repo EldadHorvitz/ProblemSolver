@@ -8,8 +8,15 @@
 using namespace std;
 
 int MySerialServer::open(int port, ClientHandler client) {
+
     int client_socket_server;
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
+
+    struct timeval tv;
+    tv.tv_sec = 120;//timout in seconds
+    setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
+
+
     if (socketfd == -1) {
         //error
         cerr << "could not create a socket" << endl;
