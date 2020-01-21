@@ -10,11 +10,9 @@
 
 class MySerialServer : public server_side::Server {
 public:
-    int open(int port, ClientHandler client) override;
+    int open(int port, ClientHandler *client) ;
 
 private:
-
-
 };
 
 

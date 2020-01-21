@@ -9,6 +9,3 @@
 #define PORT 8081
 using namespace std;
 
-void server_side::Server::stop() {
-    close(this->socketfd); //closing the listening socket
-}

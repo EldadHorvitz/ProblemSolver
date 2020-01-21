@@ -1,15 +1,16 @@
 //
-// Created by nizan on 13/01/2020.
+// Created by nizan on 21/01/2020.
 //
 #include <thread>
 #include <unistd.h>
 #include "MySerialServer.h"
 #include "Server.h"
+#include "MyParallelServer.h"
 
 
 using namespace std;
 
-int runServer(int port, ClientHandler *client) {
+int runServerParallel(int port, ClientHandler *client) {
 
     int client_socket_server;
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -58,6 +59,8 @@ int runServer(int port, ClientHandler *client) {
             server_side::isRun = true;
             continue;
         }
+        thread tn(runServerParallel, port, client);
+        tn.detach();
         client->handleClient(socketfd);
         close(client_socket);
     }
@@ -72,8 +75,8 @@ int runServer(int port, ClientHandler *client) {
 }
 
 
-int MySerialServer::open(int port, ClientHandler *client) {
-   thread tc(runServer, port, client);
-   tc.join();
+int MyParallelServer::open(int port, ClientHandler *client) {
+    thread tc(runServerParallel, port, client);
+    tc.join();
 
 }

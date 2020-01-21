@@ -16,15 +16,15 @@
 
 namespace server_side {
     class Server {
-    protected:
-        int socketfd;
-
     public:
-        virtual int open(int port, ClientHandler client) = 0;
+        virtual int open(int port, ClientHandler* client) = 0;
 
-        void stop();
+        virtual void stop() = 0;
 
     };
+
+    static bool isRun = false;
+
 }
 
 #endif //EX4_SERVER_H
