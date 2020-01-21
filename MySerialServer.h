@@ -8,9 +8,17 @@
 
 #include "Server.h"
 
+
+
 class MySerialServer : public server_side::Server {
 public:
+    MySerialServer();
+
     int open(int port, ClientHandler *client) ;
+
+    void stop() override;
+
+    virtual ~MySerialServer();
 
 private:
 };

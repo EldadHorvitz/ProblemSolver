@@ -80,3 +80,16 @@ int MyParallelServer::open(int port, ClientHandler *client) {
     tc.join();
 
 }
+
+
+MyParallelServer::MyParallelServer() {}
+
+MyParallelServer::~MyParallelServer() {
+
+}
+
+
+void MyParallelServer::stop() {
+    return;
+
+}

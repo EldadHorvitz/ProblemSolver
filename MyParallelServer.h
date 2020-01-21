@@ -10,7 +10,13 @@
 
 class MyParallelServer : public server_side::Server {
 public:
+    MyParallelServer();
+
     int open(int port, ClientHandler *client);
+
+    virtual ~MyParallelServer();
+
+    void stop() override;
 };
 
 
