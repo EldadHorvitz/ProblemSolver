@@ -8,7 +8,7 @@
 
 class Matrix {
 public:
-    Matrix(int startPos, int endPos, int goalStartPos, int goalEndPos, int matrixSize);
+    Matrix(int matrixSize);
 
 private:
     int startPos;

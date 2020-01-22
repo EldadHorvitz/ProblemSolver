@@ -4,11 +4,7 @@
 
 #include "Matrix.h"
 
-Matrix::Matrix(int startPos, int endPos, int goalStartPos, int goalEndPos, int matrixSize) :
-        startPos(startPos),
-        endPos(endPos),
-        goalStartPos(goalStartPos),
-        goalEndPos(goalEndPos),
-        matrixSize(matrixSize) {}
+
+Matrix::Matrix(int matrixSize) : matrixSize(matrixSize) {}
 
 

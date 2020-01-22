@@ -11,7 +11,6 @@ using namespace std;
 
 int runServer(int port, ClientHandler *client) {
 
-
     int client_socket;
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -48,7 +47,7 @@ int runServer(int port, ClientHandler *client) {
         setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
 
         //select-add it
-        result =1;// select(socketfd + 1, &rfds, (fd_set *) 0, (fd_set *) 0, &tv);
+        result = 1;// select(socketfd + 1, &rfds, (fd_set *) 0, (fd_set *) 0, &tv);
         if (result > 0) {
             // accepting a client
             int addrlen = sizeof(address);
@@ -67,6 +66,7 @@ int runServer(int port, ClientHandler *client) {
         return -1;
     }
     close(client_socket);
+
 }
 
 

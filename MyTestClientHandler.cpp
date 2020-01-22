@@ -4,10 +4,10 @@
 
 #include <unistd.h>
 #include "MyTestClientHandler.h"
+#include "Matrix.h"
 #include <algorithm>
 
 using namespace std;
-
 
 
 void readFromBuffer(string buffer) {
@@ -31,6 +31,7 @@ void MyTestClientHandler::handleClient(int socket) {
     int numOfComma = 0;
     string s = "";
     int firstTime = 1;
+    Matrix *matrix1;
     while (1) {
         read(socket, buffer, 1024);
         string delimiter = "\n";
@@ -45,13 +46,15 @@ void MyTestClientHandler::handleClient(int socket) {
         if (firstTime) {
             firstTime = 0;
             numOfComma = std::count(token.begin(), token.end(), ',');
+            matrix1 = new Matrix(numOfComma);
         }
         if (token == "end") {
             break;
         }
 
     }
-int matrix[numOfComma][numOfComma];
+    int matrix[numOfComma][numOfComma];
 
 }
+
 
