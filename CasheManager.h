@@ -6,7 +6,7 @@
 #define EX4_CASHEMANAGER_H
 
 
-class CasheManager <T,S>{
+class CasheManager {
 
 };
 

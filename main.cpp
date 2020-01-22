@@ -1,7 +1,18 @@
 #include <iostream>
+#include "MySerialServer.h"
+#include "Server.h"
+#include "MyTestClientHandler.h"
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "this is ex4" << std::endl;
+using namespace std;
+
+int main(int args, char *argv[]) {
+
+
+    ClientHandler *c = new MyTestClientHandler();
+    int port = stoi(argv[1]);
+    server_side::Server *s = new MySerialServer();
+    s->open(port, c);
+
+
     return 0;
 }
