@@ -2,18 +2,14 @@
 // Created by eldad on 23/01/2020.
 //
 
-#ifndef EX4_BFS_H
-#define EX4_BFS_H
+#ifndef EX4_ASTAR_H
+#define EX4_ASTAR_H
 
 #include "Searcher.h"
 template<class T,class S>
-class BFS: public Searcher<T,S> {
-
-private:
-    int counter;
+class AStar: public Searcher<T,S> {
+private: int counter;
 public:
-
-    BFS();
 
     int getNumLength();
     S search(Searchable<T> s);
@@ -25,7 +21,4 @@ public:
 
 
 
-
-
-
-#endif //EX4_BFS_H
+#endif //EX4_ASTAR_H

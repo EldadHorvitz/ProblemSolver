@@ -10,8 +10,9 @@ template<class T,class S>
 class DFS: public Searcher<T,S> {
 
 private:
-    int counter=0;
+    int counter;
 public:
+    DFS();
 
     int getNumLength();
     S search(Searchable<T> s);

@@ -9,7 +9,7 @@
 #include "Searcher.h"
 template<class T,class S>
 class BstFS: public Searcher<T,S> {
-private: int counter=0;
+private: int counter;
 public:
     BstFS();
     int getNumLength();
@@ -20,7 +20,7 @@ public:
 };
 
 template<class T, class S>
-BstFS<T, S>::BstFS() {}
+BstFS<T, S>::BstFS():counter(0) {}
 
 template<class T, class S>
 BstFS<T, S>::~BstFS() {
