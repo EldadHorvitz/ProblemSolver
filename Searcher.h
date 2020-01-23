@@ -5,11 +5,15 @@
 #ifndef EX4_SEARCHER_H
 #define EX4_SEARCHER_H
 
-template<class T>
+#include "Searchable.h"
+
+template<class T,class S>
 
 class Searcher {
 public:
-    virtual void search() = 0;
+    virtual S search(Searchable<T> s) = 0;
+    //returns how many states we passed until we reached the solution
+    int getNumLength();
 
 
 };
