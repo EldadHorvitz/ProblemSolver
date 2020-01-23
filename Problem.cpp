@@ -11,7 +11,7 @@ Problem::Problem() {}
 
 
 const Point &Problem::getStart() const {
-    return start;
+    
 }
 
 const Point &Problem::getEnd() const {
