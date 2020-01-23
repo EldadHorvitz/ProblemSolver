@@ -13,16 +13,25 @@ using namespace std;
 
 class Problem : public Searchable<Point> {
 public:
-    Problem(int start, int end);
 
-    int getStart() const;
+    Problem();
 
-    int getEnd() const;
+    Problem(const Point &start, const Point &end);
+
+    void insertLine(string str);
+
+    void setStart(const Point &start);
+
+    void setEnd(const Point &end);
+
+    const Point &getStart() const;
+
+    const Point &getEnd() const;
 
 private:
-    int start;
-    int end;
-    vector<vector<double >>;
+    Point start = Point(0, 0);
+    Point end = Point(0, 0);
+    vector<vector<double >> matrix;
 
 };
 
