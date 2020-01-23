@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include "MyTestClientHandler.h"
 #include "Matrix.h"
+#include "Problem.h"
 #include <algorithm>
 #include <sstream>
 
@@ -22,17 +23,13 @@ void readFromBuffer(string buffer, int numOfComma) {
         i++;
         cout << token[i] << endl;
     }
-    int c[numOfComma + 1];
-    int j;
-    for (j = 0; j <= numOfComma; j++) {
-        c[j] = stoi(token[j]);
-    }
-    int k;
+
 }
 
 
 void MyTestClientHandler::handleClient(int socket) {
     //reading from client
+    Problem *problem = new Problem();
     char buffer[1024] = {0};
     int numOfComma = 0;
     int firstTime = 1;
@@ -43,23 +40,16 @@ void MyTestClientHandler::handleClient(int socket) {
         if (token == "end\r\n" || token == "end\n") {
             break;
         }
-        if (firstTime) {
-            firstTime = 0;
-            numOfComma = std::count(token.begin(), token.end(), ',');
-            matrix1 = new Matrix(numOfComma);
-        }
-        readFromBuffer(token, numOfComma);
-        int i;
-        for (i = 0; i <= numOfComma; i++) {
-            read(socket, buffer, 1024);
-            token = "";
-            for (i = 0; i < 1024; i++) {
-                token = token + buffer[i];
-                if (buffer[i] == '\n') {
-                    break;
-                }
+        numOfComma = std::count(token.begin(), token.end(), ',');
+        if (numOfComma > 1) {
+            problem->insertLine(token);
+        } else if (numOfComma == 1) {
+            if (firstTime) {
+                firstTime = 0;
+                problem->insertStartPoint(token);
+            } else {
+                problem->insertEndPoint(token);
             }
-            readFromBuffer(token, numOfComma);
         }
     }
 
