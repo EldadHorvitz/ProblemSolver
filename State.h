@@ -1,0 +1,60 @@
+//
+// Created by eldad on 23/01/2020.
+//
+
+#ifndef EX4_STATE_H
+#define EX4_STATE_H
+
+template <class T>
+class State {
+private:
+    T state;
+    double cost;
+    State<T> dad;
+public:
+    virtual ~State() {
+
+    }
+
+    T getState() const {
+        return state;
+    }
+
+    void setCost(double cost) {
+        State::cost = cost;
+    }
+
+    void setDad(const State<T> &dad) {
+        State::dad = dad;
+    }
+
+    void setVisited(bool visited) {
+        State::visited = visited;
+    }
+
+    double getCost() const {
+        return cost;
+    }
+
+    const State<T> &getDad() const {
+        return dad;
+    }
+
+    bool isVisited() const {
+        return visited;
+    }
+
+public:
+    State(T state1, double cost1) : state(state1), cost(cost1) {}
+
+private:
+    bool visited;
+public:
+    bool equals(State<T> s){
+        state.equals(s.getState());
+    }
+
+};
+
+
+#endif //EX4_STATE_H
