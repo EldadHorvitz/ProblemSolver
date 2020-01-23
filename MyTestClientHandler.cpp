@@ -33,10 +33,18 @@ void MyTestClientHandler::handleClient(int socket) {
     char buffer[1024] = {0};
     int numOfComma = 0;
     int firstTime = 1;
-    Matrix *matrix1;
+    string delimiter = "\n";
+    string token;
     while (1) {
+        string s = "";
         read(socket, buffer, 1024);
-        string token(buffer);
+        s += buffer;
+        size_t pos = 0;
+        while ((pos = s.find(delimiter)) != string::npos) {
+            token = s.substr(0, pos);
+            s.erase(0, pos + delimiter.length());
+            break;
+        }
         if (token == "end\r\n" || token == "end\n") {
             break;
         }
@@ -51,6 +59,7 @@ void MyTestClientHandler::handleClient(int socket) {
                 problem->insertEndPoint(token);
             }
         }
+        token = "";
     }
 
 }
