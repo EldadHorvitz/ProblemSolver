@@ -10,63 +10,58 @@
 using namespace std;
 
 int runServer(int port, ClientHandler *client) {
-
-    int client_socket;
-    int socketfd = socket(AF_INET, SOCK_STREAM, 0);
-
-
-    if (socketfd == -1) {
-        //error
-        cerr << "could not create a socket" << endl;
+    //creates socket and checks if created
+    int socketFD = socket(AF_INET, SOCK_STREAM, 0);
+    if (socketFD == -1) {
+        std::cerr << "Could not create a socket" << std::endl;
         return -1;
     }
-    //bind socket to IP address
-    //we first create the sockaddr obj.
-    sockaddr_in address;//in means IP4
+    //binds socket to IP address (we want to listen to al IP)
+    sockaddr_in address;
     address.sin_family = AF_INET;
-    address.sin_addr.s_addr = inet_addr("127.0.0.1");//give me any IP allocated for my machine.
+    // any IP in IPV4
+    address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(port);
-    //we need to convert our number
-    //to a number that the network understands
-
-    //the actual bind command
-    if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
-        cerr << "could not bind socket to an IP" << endl;
-        return -1;
+    // Binds the socket to the given port at localhost.
+    if (bind(socketFD, (struct sockaddr *) &address, sizeof(address)) == -1) {
+        std::cerr << "Could not bind the socket to an IP" << std::endl;
+        return -2;
     }
-
-    if (listen(socketfd, 1) == -1) {
-        cerr << "Error during listening command" << endl;
+    // listens to clients (1 can wait in the queue)
+    if (listen(socketFD, 1) == -1) {
+        std::cerr << "Error during listening command" << std::endl;
+        return -3;
+    } else {
+        std::cout << "Server is now listening ..." << std::endl;
     }
-
-    int result = 0;
+    int client_socket;
+    int result;
+    // accepts clients
     while (!server_side::isRun) {
         fd_set rfds;
+        FD_ZERO(&rfds);
+        FD_SET(socketFD, &rfds);
         struct timeval tv;
-        tv.tv_sec = 120;//timout in seconds
-        setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
-
-        //select-add it
-        result = 1;// select(socketfd + 1, &rfds, (fd_set *) 0, (fd_set *) 0, &tv);
+        tv.tv_sec = (long) 120;
+        tv.tv_usec = 0;
+        result = select(socketFD + 1, &rfds, (fd_set *) 0, (fd_set *) 0, &tv);
         if (result > 0) {
-            // accepting a client
-            int addrlen = sizeof(address);
-            client_socket = accept(socketfd, (struct sockaddr *) &address, (socklen_t *) &addrlen);
-
+            socklen_t addrlen = sizeof(sockaddr_in);
+            client_socket = accept(socketFD, (struct sockaddr *) &address, &addrlen);
         } else {
             server_side::isRun = true;
             continue;
         }
+        if (client_socket == -1) {
+            return -4;
+        }
         client->handleClient(client_socket);
-        close(socketfd);
+        // close client socket
+        close(client_socket);
     }
-
-    if (client_socket == -1) {
-        cerr << "Error accepting" << endl;
-        return -1;
-    }
-    close(client_socket);
-
+    // close server socket
+    close(socketFD);
+    return 0;
 }
 
 
