@@ -11,9 +11,9 @@ template <class T>
 class Searchable {
 
 public:
-    State<T> getInit();
-    State<T> getGoal();
-    std::list<State<T>> getNeighbours(State<T> s);
+    State<T> *getInit();
+    State<T> *getGoal();
+    std::list<State<T>*> getNeighbours(State<T> s);
 };
 
 
