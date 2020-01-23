@@ -10,6 +10,7 @@ class State {
 private:
     T state;
     double cost;
+    double costSum;
     State<T> dad;
     bool visited;
 public:
@@ -21,9 +22,6 @@ public:
         return state;
     }
 
-    void setCost(double cost) {
-        State::cost = cost;
-    }
 
     void setDad(const State<T> &dad) {
         State::dad = dad;
@@ -46,8 +44,15 @@ public:
     }
 
 
-    State(T state1) : state(state1),visited(false),cost(0){}
+    State(T state, double cost) : state(state), cost(cost),costSum(cost),visited(false) {}
 
+    double getCostSum() const {
+        return costSum;
+    }
+
+    void setCostSum(double costSum) {
+        State::costSum = costSum;
+    }
 
 
     bool equals(State<T> s){
