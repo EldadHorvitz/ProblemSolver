@@ -53,6 +53,10 @@ public:
     bool equals(State<T> s){
         state.equals(s.getState());
     }
+   // template<class T>
+   bool operator<(const State<T>& p1) {
+       return p1.getCost() < this->getCost();
+   }
 
 };
 
