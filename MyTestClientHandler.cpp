@@ -6,6 +6,9 @@
 #include "MyTestClientHandler.h"
 #include "Matrix.h"
 #include "Problem.h"
+#include "CasheManager.h"
+#include "Solver.h"
+#include "OA.h"
 #include <algorithm>
 #include <sstream>
 
@@ -30,6 +33,7 @@ void readFromBuffer(string buffer, int numOfComma) {
 void MyTestClientHandler::handleClient(int socket) {
     //reading from client
     Problem *problem = new Problem();
+    string solution;
     char buffer[1024] = {0};
     int numOfComma = 0;
     int firstTime = 1;
@@ -51,6 +55,14 @@ void MyTestClientHandler::handleClient(int socket) {
                 problem->insertEndPoint(token);
             }
         }
+    }
+    CasheManager<Problem*,string> *cm=new CasheManager<Problem*,string>();
+    if (cm->count(problem)){
+        solution=cm->get(problem);
+    }else{
+        Solver<Problem*,string> *so=new OA<Problem*,string>();
+        solution=so->solve(problem);
+        cm->insert(problem,solution);
     }
 
 }
