@@ -9,7 +9,7 @@ template<class T>
 
 class Searcher {
 public:
-    virtual void serach() = 0;
+    virtual void search() = 0;
 
 
 };

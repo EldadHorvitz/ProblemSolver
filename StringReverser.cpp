@@ -8,6 +8,6 @@
 string StringReverser::solve(string str) {
     reverse(str.begin(), str.end());
     return str;
-    
+
 
 }
