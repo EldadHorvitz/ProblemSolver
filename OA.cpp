@@ -10,4 +10,5 @@ S OA<P,S>::solve(P p) {
     string s3=this->BstFS->search(p);
     string s4=this->AStar->search(p);
     return s4;
+
 }
