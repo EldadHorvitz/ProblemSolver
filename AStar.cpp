@@ -53,10 +53,12 @@ bool has (queue <State<T>*> q,State<T> *s){
     }
     return false;
 }
+
 template<class T,class S>
 int AStar<T,S>::getNumLength(){
     return counter;
 }
+
 template<class T,class S>
 queue <State<T>*> priority(queue <State<T>*> q){
     queue <State<T>*> temp;
