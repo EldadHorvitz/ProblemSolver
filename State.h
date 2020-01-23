@@ -5,14 +5,14 @@
 #ifndef EX4_STATE_H
 #define EX4_STATE_H
 
-template <class T>
+template<class T>
 class State {
 private:
     T *state;
     double cost;
     double costSum;
     double uCostSum;
-    State<T>* dad;
+    State<T> *dad;
     bool visited;
 public:
     virtual ~State() {
@@ -61,16 +61,21 @@ public:
     }
 
 
-    bool equals(State<T> *s){
+    bool equals(State<T> *s) {
         state->equals(s->getState());
     }
-   // template<class T>
-   bool operator<( State<T>* p1) {
-       return p1->getCostSum() < this->getCostSum();
-   }
-    bool operator==(State<T>* p1) {
+
+    // template<class T>
+    bool operator<(State<T> *p1) {
+        return p1->getCostSum() < this->getCostSum();
+    }
+
+    bool operator==(State<T> *p1) {
         return (p1->getState() == this->getState());
     }
+
+
+    State(T *state, double cost) : state(state), cost(cost) {}
 
 };
 

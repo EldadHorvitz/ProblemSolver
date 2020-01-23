@@ -10,23 +10,6 @@
 Problem::Problem() {}
 
 
-const Point &Problem::getStart() const {
-    
-}
-
-const Point &Problem::getEnd() const {
-    return end;
-}
-
-
-void Problem::setStart(const Point &start) {
-    Problem::start = start;
-}
-
-void Problem::setEnd(const Point &end) {
-    Problem::end = end;
-}
-
 void Problem::insertLine(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
@@ -50,7 +33,10 @@ void Problem::insertStartPoint(string str) {
         str.erase(0, pos + delimiter.length());
     }
     int p2 = (stoi(str.substr(0, pos)));
-    this->setStart(Point(p1, p2));
+    Point *p = new Point(p1, p2);
+    double value = this->matrix[p1][p2];
+    State<Point *> *o = new State<Point *>(p, value);
+
 }
 
 void Problem::insertEndPoint(string str) {
@@ -62,8 +48,12 @@ void Problem::insertEndPoint(string str) {
         str.erase(0, pos + delimiter.length());
     }
     int p2 = (stoi(str.substr(0, pos)));
-    this->setEnd(Point(p1, p2));
+    Point *p = new Point(p1, p2);
+    double value = this->matrix[p1][p2];
+    State<Point *> *o = new State<Point *>(p, value);
+
 }
+
 
 list<Point> Problem::neighbors(Point p) {
 //    State<Point> s1=State<Point>(Point(5,3),8);
