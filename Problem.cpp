@@ -50,7 +50,6 @@ void Problem::insertEndPoint(string str) {
     Point *p = new Point(p1, p2);
     double value = this->matrix[p1][p2];
     State<Point *> *o = new State<Point *>(&p, value);
-
 }
 
 

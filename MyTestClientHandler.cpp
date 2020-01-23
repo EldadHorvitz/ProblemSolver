@@ -45,7 +45,7 @@ void MyTestClientHandler::handleClient(int socket) {
             s.erase(0, pos + delimiter.length());
             break;
         }
-        if (token == "end\r\n" || token == "end\n") {
+        if (token == "end\r\n" || token == "end\n" || token == "end\r") {
             break;
         }
         numOfComma = std::count(token.begin(), token.end(), ',');
