@@ -27,6 +27,7 @@ public:
     const Point &getStart() const;
 
     const Point &getEnd() const;
+
     void insertEndPoint(string str);
 
     void insertStartPoint(string str);
@@ -35,11 +36,10 @@ private:
     Point start = Point(0, 0);
     Point end = Point(0, 0);
     vector<vector<double >> matrix;
-    int rowSize=this->matrix.size();;
+    int rowSize = this->matrix.size();;
     int colSize;
 
-
-    list<Point> neighbors(Point p);
+    list <Point> neighbors(Point p);
 };
 
 

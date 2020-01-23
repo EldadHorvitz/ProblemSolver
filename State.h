@@ -5,7 +5,9 @@
 #ifndef EX4_STATE_H
 #define EX4_STATE_H
 
-template <class T>
+#include "Point.h"
+
+template<class T>
 class State {
 private:
     T state;
@@ -44,7 +46,7 @@ public:
     }
 
 
-    State(T state, double cost) : state(state), cost(cost),costSum(cost),visited(false) {}
+    State(T state, double cost) : state(state), cost(cost), costSum(cost), visited(false) {}
 
     double getCostSum() const {
         return costSum;
@@ -55,17 +57,21 @@ public:
     }
 
 
-    bool equals(State<T> s){
+    bool equals(State<T> s) {
         state.equals(s.getState());
     }
-   // template<class T>
-   bool operator<(const State<T>& p1) {
-       return p1.getCost() < this->getCost();
-   }
+
+    // template<class T>
+    bool operator<(const State<T> &p1) {
+        return p1.getCost() < this->getCost();
+    }
+
     bool operator==(State<T> p1) {
         return (p1.getState() == this->getState());
     }
 
+
+    State() {}
 };
 
 
