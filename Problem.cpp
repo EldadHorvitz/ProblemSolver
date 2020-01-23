@@ -65,4 +65,37 @@ void Problem::insertEndPoint(string str) {
     this->setEnd(Point(p1, p2));
 }
 
+list<Point> Problem::neighbors(Point p) {
+    list<Point> listN;
+    this->rowSize = this->matrix.size();
+    int maxColSize = 0;
+    int i = 0;
+    for (i = 0; i < this->matrix.size(); i +=) {
+        if (this->matrix[i].size() > maxColSize) {
+            maxColSize = this->matrix[i].size();
+        }
+    }
+    this->colSize = maxColSize;
 
+    int x1 = p.getX();
+    int y1 = p.getY();
+
+    //x+1,y
+    if (!(x1 + 1 > this->rowSize)) {
+        listN.push_back(Point(x1, y1));
+    }
+    //x,y+1
+    if (!(y1 + 1 > this->colSize)) {
+        listN.push_back(Point(x1, y1 + 1));
+    }
+    //x-1,y
+    if (!(x1 - 1 < 0)) {
+        listN.push_back(Point(x1 - 1, y1));
+    }
+    //x,y-1
+    if (!(y1 - 1 < 0)) {
+        listN.push_back(Point(x1, y1 - 1));
+    }
+
+    return listN;
+}

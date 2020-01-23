@@ -35,8 +35,11 @@ private:
     Point start = Point(0, 0);
     Point end = Point(0, 0);
     vector<vector<double >> matrix;
+    int rowSize=this->matrix.size();;
+    int colSize;
 
 
+    list<Point> neighbors(Point p);
 };
 
 
