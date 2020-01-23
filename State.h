@@ -44,7 +44,7 @@ public:
     }
 
 
-    State(T state, double cost) : state(state), cost(cost),costSum(cost),visited(false) {}
+    State(T state, double cost) : state(state), cost(cost),costSum(0),visited(false),dad(nullptr) {}
 
     double getCostSum() const {
         return costSum;
@@ -60,7 +60,7 @@ public:
     }
    // template<class T>
    bool operator<(const State<T>& p1) {
-       return p1.getCost() < this->getCost();
+       return p1.getCostSum() < this->getCostSum();
    }
     bool operator==(State<T> p1) {
         return (p1.getState() == this->getState());

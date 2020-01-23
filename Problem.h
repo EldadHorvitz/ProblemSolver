@@ -8,6 +8,7 @@
 #include "vector"
 #include "Searchable.h"
 #include "Point.h"
+#include "State.h"
 
 using namespace std;
 

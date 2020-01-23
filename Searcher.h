@@ -13,7 +13,7 @@ class Searcher {
 public:
     virtual S search(Searchable<T> s) = 0;
     //returns how many states we passed until we reached the solution
-    int getNumLength();
+    virtual int getNumLength()=0;
 
 
 };
