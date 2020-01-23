@@ -28,20 +28,30 @@ void Problem::setEnd(const Point &end) {
 }
 
 void Problem::insertLine(string str) {
-    int numOfComma = std::count(str.begin(), str.end(), ',');
     std::string delimiter = ",";
     size_t pos = 0;
     int i = 0;
-    if (numOfComma > 1) {
-        while ((pos = str.find(delimiter)) != std::string::npos) {
-            double d = (stod(str.substr(0, pos)));
-            str.erase(0, pos + delimiter.length());
-            i++;
-        }
-    } else {
-        int p1 = (stoi(str.substr(0, pos)));
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        double d = (stod(str.substr(0, pos)));
         str.erase(0, pos + delimiter.length());
-        int p2 = (stoi(str.substr(0, pos)));
+        i++;
     }
+}
 
+void Problem::insertStartPoint(string str) {
+    std::string delimiter = ",";
+    size_t pos = 0;
+    int p1 = (stoi(str.substr(0, pos)));
+    str.erase(0, pos + delimiter.length());
+    int p2 = (stoi(str.substr(0, pos)));
+    this->setStart(Point(p1, p2));
+}
+
+void Problem::insertEndPoint(string str) {
+    std::string delimiter = ",";
+    size_t pos = 0;
+    int p1 = (stoi(str.substr(0, pos)));
+    str.erase(0, pos + delimiter.length());
+    int p2 = (stoi(str.substr(0, pos)));
+    this->setEnd(Point(p1, p2));
 }
