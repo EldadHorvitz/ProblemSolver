@@ -12,7 +12,7 @@ class BstFS: public Searcher<T,S> {
 private: int counter=0;
 public:
     BstFS();
-
+    int getNumLength();
     S search(Searchable<T> s);
 
     virtual ~BstFS();

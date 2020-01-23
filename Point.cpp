@@ -17,3 +17,6 @@ int Point::getY() const {
 bool Point::equals(Point p1) {
     return (p1.getX() == this->x && p1.getY() == this->getY());
 }
+bool Point::operator==(Point p1) {
+    return (p1.getX() == this->x && p1.getY() == this->getY());
+}

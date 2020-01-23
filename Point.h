@@ -14,7 +14,7 @@ public:
     Point(int x, int y);
 
     bool equals(Point p1);
-
+    bool operator==(Point p1);
     int getX() const;
 
     int getY() const;

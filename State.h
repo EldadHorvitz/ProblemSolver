@@ -57,6 +57,9 @@ public:
    bool operator<(const State<T>& p1) {
        return p1.getCost() < this->getCost();
    }
+    bool operator==(State<T> p1) {
+        return (p1.getState() == this->getState());
+    }
 
 };
 
