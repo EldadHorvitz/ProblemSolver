@@ -66,6 +66,7 @@ void Problem::insertEndPoint(string str) {
 }
 
 list<Point> Problem::neighbors(Point p) {
+//    State<Point> s1=State<Point>(Point(5,3),8);
     list<Point> listN;
     this->rowSize = this->matrix.size();
     int maxColSize = 0;
