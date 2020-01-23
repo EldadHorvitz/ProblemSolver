@@ -8,35 +8,31 @@
 template <class T>
 class State {
 private:
-    T state;
+    T *state;
     double cost;
     double costSum;
-    State<T> dad;
+    double uCostSum;
+    State<T>* dad;
     bool visited;
 public:
     virtual ~State() {
 
     }
 
-    T getState() const {
-        return state;
+    double getUCostSum() const {
+        return uCostSum;
     }
 
-
-    void setDad(const State<T> &dad) {
-        State::dad = dad;
+    void setUCostSum(double uCostSum1) {
+        State::uCostSum = uCostSum1;
     }
 
-    void setVisited(bool visited) {
-        State::visited = visited;
+    void setVisited(bool visited1) {
+        State::visited = visited1;
     }
 
     double getCost() const {
         return cost;
-    }
-
-    const State<T> &getDad() const {
-        return dad;
     }
 
     bool isVisited() const {
@@ -44,26 +40,36 @@ public:
     }
 
 
-    State(T state, double cost) : state(state), cost(cost),costSum(0),visited(false),dad(nullptr) {}
+    void setDad(State<T> *dad) {
+        State::dad = dad;
+    }
 
     double getCostSum() const {
         return costSum;
     }
 
-    void setCostSum(double costSum) {
-        State::costSum = costSum;
+    T *getState() const {
+        return state;
+    }
+
+    State<T> *getDad() const {
+        return dad;
+    }
+
+    void setCostSum(double costSum1) {
+        State::costSum = costSum1;
     }
 
 
-    bool equals(State<T> s){
-        state.equals(s.getState());
+    bool equals(State<T> *s){
+        state->equals(s->getState());
     }
    // template<class T>
-   bool operator<(const State<T>& p1) {
-       return p1.getCostSum() < this->getCostSum();
+   bool operator<( State<T>* p1) {
+       return p1->getCostSum() < this->getCostSum();
    }
-    bool operator==(State<T> p1) {
-        return (p1.getState() == this->getState());
+    bool operator==(State<T>* p1) {
+        return (p1->getState() == this->getState());
     }
 
 };
