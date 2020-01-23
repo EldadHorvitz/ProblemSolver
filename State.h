@@ -11,6 +11,7 @@ private:
     T state;
     double cost;
     State<T> dad;
+    bool visited;
 public:
     virtual ~State() {
 
@@ -44,12 +45,11 @@ public:
         return visited;
     }
 
-public:
-    State(T state1, double cost1) : state(state1), cost(cost1) {}
 
-private:
-    bool visited;
-public:
+    State(T state1) : state(state1),visited(false),cost(0){}
+
+
+
     bool equals(State<T> s){
         state.equals(s.getState());
     }
