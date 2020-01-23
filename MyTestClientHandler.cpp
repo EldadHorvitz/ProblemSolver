@@ -62,7 +62,6 @@ void MyTestClientHandler::handleClient(int socket) {
             readFromBuffer(token, numOfComma);
         }
     }
-    int matrix[numOfComma][numOfComma];
 
 }
 
