@@ -33,16 +33,17 @@ public:
 
     void insertStartPoint(string str);
 
+    void insertToState();
+
 private:
-    State<Point*>* start;
-    State<Point*>* end;
-    // Point start = Point(0, 0);
- //   Point end = Point(0, 0);
+    State<Point *> *start;
+    State<Point *> *end;
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
     int colSize;
 
     list <Point> neighbors(Point p);
+
 };
 
 

@@ -54,6 +54,7 @@ void MyTestClientHandler::handleClient(int socket) {
         } else if (numOfComma == 1) {
             if (firstTime) {
                 firstTime = 0;
+                problem->insertToState();
                 problem->insertStartPoint(token);
             } else {
                 problem->insertEndPoint(token);
