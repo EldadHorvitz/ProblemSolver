@@ -70,7 +70,7 @@ list<Point> Problem::neighbors(Point p) {
     this->rowSize = this->matrix.size();
     int maxColSize = 0;
     int i = 0;
-    for (i = 0; i < this->matrix.size(); i +=) {
+    for (i = 0; i < this->matrix.size(); i++) {
         if (this->matrix[i].size() > maxColSize) {
             maxColSize = this->matrix[i].size();
         }
@@ -99,3 +99,4 @@ list<Point> Problem::neighbors(Point p) {
 
     return listN;
 }
+
