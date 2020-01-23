@@ -44,8 +44,11 @@ void Problem::insertLine(string str) {
 void Problem::insertStartPoint(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
-    int p1 = (stod(str.substr(0, pos)));
-    str.erase(0, pos + delimiter.length());
+    int p1;
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        p1 = (stoi(str.substr(0, pos)));
+        str.erase(0, pos + delimiter.length());
+    }
     int p2 = (stoi(str.substr(0, pos)));
     this->setStart(Point(p1, p2));
 }
@@ -53,8 +56,13 @@ void Problem::insertStartPoint(string str) {
 void Problem::insertEndPoint(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
-    int p1 = (stoi(str.substr(0, pos)));
-    str.erase(0, pos + delimiter.length());
+    int p1;
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        p1 = (stoi(str.substr(0, pos)));
+        str.erase(0, pos + delimiter.length());
+    }
     int p2 = (stoi(str.substr(0, pos)));
     this->setEnd(Point(p1, p2));
 }
+
+
