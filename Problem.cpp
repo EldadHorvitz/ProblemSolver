@@ -111,7 +111,32 @@ State<Point *> *Problem::getGoal() {
     return this->end;
 }
 
-list<State<Point *> *> Problem::getNeighbours(State<Point> s) {
+list<State<Point *> *> Problem::getNeighbours(State<Point> p) {
+
+    list<State<Point *> *> listN;
+    int x1 = p.getState().getX();
+    int y1 = p.getState().getY();
+    //x+1,y
+    if (!(x1 + 1 > this->rowSize)) {
+        State<Point *> *g = this->locateState(new Point(x1, y1));
+        listN.push_back(g);
+    }
+    //x,y+1
+    if (!(y1 + 1 > this->colSize)) {
+        State<Point *> *g = this->locateState(new Point(x1, y1 + 1));
+        listN.push_back(g);
+    }
+    //x-1,y
+    if (!(x1 - 1 < 0)) {
+        State<Point *> *g = this->locateState(new Point(x1 - 1, y1));
+        listN.push_back(g);
+    }
+    //x,y-1
+    if (!(y1 - 1 < 0)) {
+        State<Point *> *g = this->locateState(new Point(x1, y1 - 1));
+        listN.push_back(g);
+    }
+    return listN;
 
 }
 
@@ -121,5 +146,4 @@ State<Point *> *Problem::locateState(Point *p) {
             return c;
         }
     }
-
 }
