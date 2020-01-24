@@ -85,7 +85,7 @@ queue <State<T>*> priority(queue <State<T>*> q){
 template<class T,class S>
 void update(State<T>* t,Searchable<T> s){
     Point* cur=(Point *)t->getState();
-    Point* dst=(Point *)s.getGoal();
+    Point* dst=(Point *)s.getGoal()->getState();
     double x=dst->getX()-cur->getX();
     if (x<0){
         x=x*(-1);
@@ -121,15 +121,15 @@ string getSolution(State<T> *goal,State<T> *origin){
         } else {
             f = false;
         }
-        Point pCur= (Point) cur->getState();
-        Point pSon= (Point) cur->getState();
-        if (pCur.getX() > pSon.getX()) {
+        Point* pCur= (Point*) cur->getState();
+        Point* pSon= (Point*) cur->getState();
+        if (pCur->getX()> pSon->getX()) {
             solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getX() < pSon.getX()) {
+        } else if (pCur->getX() < pSon->getX()) {
             solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getY() > pSon.getY()) {
+        } else if (pCur->getY() > pSon->getY()) {
             solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getY() < pSon.getY()) {
+        } else if (pCur->getY() < pSon->getY()) {
             solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
         }
     }
