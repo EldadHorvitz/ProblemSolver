@@ -58,7 +58,7 @@ void MyTestClientHandler::handleClient(int socket) {
         solution = so->solve(problem);
         cm->insert(problem, solution);
     }
-
+    write(socket, solution.c_str(), solution.length());
 }
 
 
