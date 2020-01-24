@@ -40,6 +40,7 @@ void Problem::insertToState() {
             Point *p = new Point(i, j);
             double value = this->matrix[i][j];
             State<Point *> *o = new State<Point *>(&p, value);
+            this->matrixStates.push_back(o);
         }
     }
 }
@@ -98,7 +99,27 @@ list<Point> Problem::neighbors(Point p) {
     if (!(y1 - 1 < 0)) {
         listN.push_back(Point(x1, y1 - 1));
     }
-
     return listN;
 }
 
+
+State<Point *> *Problem::getInit() {
+    return this->start;
+}
+
+State<Point *> *Problem::getGoal() {
+    return this->end;
+}
+
+list<State<Point *> *> Problem::getNeighbours(State<Point> s) {
+
+}
+
+State<Point *> *Problem::locateState(Point *p) {
+    for (State<Point *> *c:this->matrixStates) {
+        if (c->getState()->equals(p)) {
+            return c;
+        }
+    }
+
+}

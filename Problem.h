@@ -35,14 +35,24 @@ public:
 
     void insertToState();
 
+    State<Point *> *getInit() override;
+
+    State<Point *> *getGoal() override;
+
+    list<State<Point *> *> getNeighbours(State<Point> s) override;
+
+    list <Point> neighbors(Point p);
+
+    State<Point *> *locateState(Point* p);
+
+
 private:
     State<Point *> *start;
     State<Point *> *end;
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
     int colSize;
-
-    list <Point> neighbors(Point p);
+   list<State<Point*>*> matrixStates;
 
 };
 
