@@ -26,7 +26,7 @@ public:
     OA() {
         this->BFS=new ::BFS<Point*,string>();
         this->DFS=new ::DFS<Point*,string>();
-        this->BstFSFS=new ::BstFS<Point*,string>();
+        this->BstFS=new ::BstFS<Point*,string>();
         this->AStar=new ::AStar<Point*,string>();
     }
 
