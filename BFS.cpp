@@ -65,18 +65,19 @@ string getSolution(State<T> *goal,State<T> *origin){
         } else {
             f = false;
         }
-        Point pCur= (Point) cur->getState();
-        Point pSon= (Point) cur->getState();
-        if (pCur.getX() > pSon.getX()) {
+        Point* pCur= (Point*) cur->getState();
+        Point* pSon= (Point*) cur->getState();
+        if (pCur->getX()> pSon->getX()) {
             solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getX() < pSon.getX()) {
+        } else if (pCur->getX() < pSon->getX()) {
             solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getY() > pSon.getY()) {
+        } else if (pCur->getY() > pSon->getY()) {
             solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
-        } else if (pCur.getY() < pSon.getY()) {
+        } else if (pCur->getY() < pSon->getY()) {
             solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
         }
     }
     return solution1;
 
+}
 }
