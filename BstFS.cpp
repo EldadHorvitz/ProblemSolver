@@ -3,8 +3,11 @@
 //
 using namespace std;
 #include "BstFS.h"
+#include "Point.h"
 #include <queue>
 #include <list>
+#include <string>
+
 template<class T,class S>
 S BstFS<T,S>::search(Searchable<T> s){
     queue <State<T>*> open;
@@ -17,7 +20,7 @@ S BstFS<T,S>::search(Searchable<T> s){
         State<T>* n=open.pop();
         close.push(n);
         if (n==s.getGoal()){
-            return;//return path
+            return getSolution(n,s.getInit());
         }
         list<State<T>*> l=s.getNeighbours(n);
         for (State<T>* s1:l){
@@ -72,4 +75,43 @@ queue <State<T>*> priority(queue <State<T>*> q){
         a=q.pop();
     }
     return q;
+}
+template<class T,class S>
+string getSolution(State<T> *goal,State<T> *origin){
+    string solution1= "";
+    vector<State<T> *> v= new vector<State<T> *>();
+    State<T> *temp=goal;
+    int count=0;
+    while (!(temp==origin)){
+        v.insert(temp);
+        temp=temp->getDad();
+        count++;
+    }
+    v.insert(temp);
+    int i;
+    State<T> *cur;
+    State<T> *son;
+    bool f= true;
+    for (i=count;i>0;--i){
+        cur = v[i];
+        son = v[i - 1];
+        if (!f) {
+            solution1 += " ,";
+        } else {
+            f = false;
+        }
+        Point pCur= (Point) cur->getState();
+        Point pSon= (Point) cur->getState();
+        if (pCur.getX() > pSon.getX()) {
+            solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
+        } else if (pCur.getX() < pSon.getX()) {
+            solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
+        } else if (pCur.getY() > pSon.getY()) {
+            solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
+        } else if (pCur.getY() < pSon.getY()) {
+            solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
+        }
+    }
+    return solution1;
+
 }
