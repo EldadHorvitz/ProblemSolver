@@ -4,7 +4,6 @@
 
 #include <unistd.h>
 #include "MyTestClientHandler.h"
-#include "Matrix.h"
 #include "Problem.h"
 #include "CasheManager.h"
 #include "Solver.h"
@@ -66,7 +65,7 @@ void MyTestClientHandler::handleClient(int socket) {
         }
         token = "";
     }
-    CasheManager<Problem*,string> *cm=new CasheManager<Problem*,string>();
+    CasheManager<Problem*,string>* cm=new CasheManager<Problem*,string>();
     if (cm->count(problem)){
         solution=cm->get(problem);
     }else{

@@ -18,16 +18,16 @@ using namespace std;
 template <class P,class S>
 class OA: public Solver<P,S>{
 private:
-    Searcher<Point*,string>* BFS;
-    Searcher<Point*,string>* DFS;
-    Searcher<Point*,string>* BstFS;
-    Searcher<Point*,string>* AStar;
+    Searcher<Point*,string>* BFS1;
+    Searcher<Point*,string>* DFS1;
+    Searcher<Point*,string>* BstFS1;
+    Searcher<Point*,string>* AStar1;
 public:
     OA() {
-        this->BFS=new ::BFS<Point*,string>();
-        this->DFS=new ::DFS<Point*,string>();
-        this->BstFSFS=new ::BstFS<Point*,string>();
-        this->AStar=new ::AStar<Point*,string>();
+        this->BFS1=new BFS<Point*,string>();
+        this->DFS1=new DFS<Point*,string>();
+        this->BstFS1=new BstFS<Point*,string>();
+        this->AStar1=new AStar<Point*,string>();
     }
 
     S solve(P p) override;

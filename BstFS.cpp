@@ -101,7 +101,7 @@ string getSolution(State<T> *goal,State<T> *origin){
             f = false;
         }
         Point* pCur= (Point*) cur->getState();
-        Point* pSon= (Point*) cur->getState();
+        Point* pSon= (Point*) son->getState();
         if (pCur->getX()> pSon->getX()) {
             solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
         } else if (pCur->getX() < pSon->getX()) {

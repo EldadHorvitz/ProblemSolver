@@ -80,4 +80,3 @@ string getSolution(State<T> *goal,State<T> *origin){
     return solution1;
 
 }
-}
