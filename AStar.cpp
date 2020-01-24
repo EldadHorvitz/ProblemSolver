@@ -8,6 +8,8 @@
 using namespace std;
 #include <queue>
 #include <list>
+#include <string>
+
 template<class T,class S>
 S AStar<T,S>::search(Searchable<T> s){
     queue <State<T>*> open;
@@ -94,4 +96,24 @@ void update(State<T>* t,Searchable<T> s){
     }
     double dist=x+y;
     t->setUCostSum(dist);
+}
+template<class T,class S>
+string getSolution(State<T> *goal,State<T> *origin){
+    string solu="";
+    vector<State<T> *> v= new vector<State<T> *>();
+    State<T> *temp=goal;
+    int count=0;
+    while (!(temp==origin)){
+        v.insert(temp);
+        temp=temp->getDad();
+        count++;
+    }
+    v.insert(temp);
+    int i;
+    bool f= true;
+    for (i=count;i>0;--i){
+
+    }
+
+
 }
