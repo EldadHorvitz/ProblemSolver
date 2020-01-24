@@ -75,7 +75,7 @@ public:
     }
 
 
-    State(T *state, double cost) : state(state), cost(cost) {}
+    State(T state, double cost) : state(state), cost(cost) {}
 
 };
 

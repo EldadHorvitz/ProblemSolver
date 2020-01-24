@@ -39,7 +39,7 @@ void Problem::insertToState() {
         for (j = 0; j < this->colSize; j++) {
             Point *p = new Point(i, j);
             double value = this->matrix[i][j];
-            State<Point *> *o = new State<Point *>(&p, value);
+            State<Point *> *o = new State<Point *>(p, value);
             this->matrixStates.push_back(o);
         }
     }
@@ -57,7 +57,7 @@ void Problem::insertStartPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point *p = new Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point *> *o = new State<Point *>(&p, value);
+    State<Point *> *o = new State<Point *>(p, value);
     this->start = o;
 }
 
@@ -72,7 +72,7 @@ void Problem::insertEndPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point *p = new Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point *> *o = new State<Point *>(&p, value);
+    State<Point *> *o = new State<Point *>(p, value);
     this->end = o;
 }
 
