@@ -14,6 +14,21 @@
 using namespace std;
 
 
+void readFromBuffer(string buffer, int numOfComma) {
+    std::string delimiter = ",";
+    size_t pos = 0;
+    std::string token[numOfComma + 1];
+    int i = 0;
+    while ((pos = buffer.find(delimiter)) != std::string::npos) {
+        token[i] = buffer.substr(0, pos);
+        buffer.erase(0, pos + delimiter.length());
+        i++;
+        cout << token[i] << endl;
+    }
+
+}
+
+
 void MyTestClientHandler::handleClient(int socket) {
     //reading from client
     Problem *problem = new Problem();
@@ -50,15 +65,19 @@ void MyTestClientHandler::handleClient(int socket) {
         }
         token = "";
     }
-    CasheManager<Problem *, string> *cm = new CasheManager<Problem *, string>();
-    if (cm->count(problem)) {
-        solution = cm->get(problem);
-    } else {
-        Solver<Problem *, string> *so = new OA<Problem *, string>();
-        solution = so->solve(problem);
-        cm->insert(problem, solution);
+    CasheManager<Problem*,string>* cm;
+
+    cm=new CasheManager<Problem*,string>();
+    /*
+    if (cm->count(problem)){
+        solution=cm->get(problem);
+    }else{
+        Solver<Problem*,string> *so;
+        so=new OA<Problem*,string>();
+        solution=so->solve(problem);
+        cm->insert(problem,solution);
     }
-    write(socket, solution.c_str(), solution.length());
+*/
 }
 
 

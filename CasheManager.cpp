@@ -3,17 +3,13 @@
 //
 
 #include "CasheManager.h"
-template<class P, class S>
-CasheManager<P, S>::CasheManager() {
-    this->size=5;
-    this->counter=0;
-}
+
 template<class P, class S>
 S CasheManager<P, S>:: get(P key){
     if(this->myMap.count(key)) {
-        myList.remove(key);
-        myList.push_front(key);
-        return myMap[key];
+        myList->remove(key);
+        myList->push_front(key);
+        return *myMap[key];
     } else {
         ifstream read_file;
         read_file.open(key.toString()+".txt");
@@ -28,10 +24,10 @@ S CasheManager<P, S>:: get(P key){
                 STxt+=temp;
             }
             newObj=new S (STxt);
-            myMap.erase(myList.back());
-            myList.pop_back();
-            myMap.insert({key,newObj});
-            myList.push_front(key);
+            myMap->erase(myList->back());
+            myList->pop_back();
+            myMap->insert({key,newObj});
+            myList->push_front(key);
             return newObj;
         }
     }
@@ -39,7 +35,7 @@ S CasheManager<P, S>:: get(P key){
 }
 template<class P, class S>
 bool CasheManager<P, S>:: count(P key){
-    if(this->myMap.count(key)) {
+    if(this->myMap->count(key)) {
         return true;
     } else {
         ifstream read_file(key.toString()+".txt");
@@ -53,20 +49,20 @@ bool CasheManager<P, S>:: count(P key){
 template<class P, class S>
 void CasheManager<P, S>:: insert(P key, S obj){
     if(this->myMap.count(key)) {
-        myMap[key]=obj;
-        myList.remove(key);
-        myList.push_front(key);
+        *myMap[key]=obj;
+        myList->remove(key);
+        myList->push_front(key);
     } else {
         // didn't reach the maximum size yet
         if (counter<size){
-            myMap.insert({key,obj});
+            myMap->insert({key,obj});
             counter++;
-            myList.push_front(key);
+            myList->push_front(key);
         } else{
-            myMap.erase(myList.back());
-            myList.pop_back();
-            myMap.insert({key,obj});
-            myList.push_front(key);
+            myMap->erase(myList->back());
+            myList->pop_back();
+            myMap->insert({key,obj});
+            myList->push_front(key);
         }
 
     }
@@ -83,6 +79,14 @@ void CasheManager<P, S>:: insert(P key, S obj){
     }
 
 }
+
+template<class P, class S>
+CasheManager<P, S>::~CasheManager() {
+
+}
+
+template<class P, class S>
+CasheManager<P, S>::CasheManager():myMap(new map<P,S>()), myList(new list<P>()), size(5), counter(0) {}
 
 
 
