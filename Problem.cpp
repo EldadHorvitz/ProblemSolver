@@ -77,32 +77,6 @@ void Problem::insertEndPoint(string str) {
 }
 
 
-list<Point> Problem::neighbors(Point p) {
-//    State<Point> s1=State<Point>(Point(5,3),8);
-    list<Point> listN;
-    int x1 = p.getX();
-    int y1 = p.getY();
-
-    //x+1,y
-    if (!(x1 + 1 > this->rowSize)) {
-        listN.push_back(Point(x1, y1));
-    }
-    //x,y+1
-    if (!(y1 + 1 > this->colSize)) {
-        listN.push_back(Point(x1, y1 + 1));
-    }
-    //x-1,y
-    if (!(x1 - 1 < 0)) {
-        listN.push_back(Point(x1 - 1, y1));
-    }
-    //x,y-1
-    if (!(y1 - 1 < 0)) {
-        listN.push_back(Point(x1, y1 - 1));
-    }
-    return listN;
-}
-
-
 State<Point *> *Problem::getInit() {
     return this->start;
 }

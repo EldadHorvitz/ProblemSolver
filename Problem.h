@@ -41,9 +41,7 @@ public:
 
     list<State<Point *> *> getNeighbours(State<Point> s) override;
 
-    list <Point> neighbors(Point p);
-
-    State<Point *> *locateState(Point* p);
+    State<Point *> *locateState(Point *p);
 
 
 private:
@@ -52,7 +50,7 @@ private:
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
     int colSize;
-   list<State<Point*>*> matrixStates;
+    list<State<Point *> *> matrixStates;
 
 };
 
