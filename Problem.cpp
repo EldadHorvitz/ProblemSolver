@@ -86,7 +86,6 @@ State<Point *> *Problem::getGoal() {
 }
 
 list<State<Point *> *> Problem::getNeighbours(State<Point> p) {
-
     list<State<Point *> *> listN;
     int x1 = p.getState().getX();
     int y1 = p.getState().getY();
@@ -121,3 +120,4 @@ State<Point *> *Problem::locateState(Point *p) {
         }
     }
 }
+
