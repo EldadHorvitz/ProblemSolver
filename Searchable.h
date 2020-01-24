@@ -7,13 +7,16 @@
 
 #include "State.h"
 #include <list>
-template <class T>
+
+template<class T>
 class Searchable {
 
 public:
-    State<T> *getInit();
-    State<T> *getGoal();
-    std::list<State<T>*> getNeighbours(State<T> s);
+    virtual State<T *> *getInit() = 0;
+
+    virtual State<T *> *getGoal() = 0;
+
+    virtual std::list<State<T *> *> getNeighbours(State<T> s) = 0;
 };
 
 

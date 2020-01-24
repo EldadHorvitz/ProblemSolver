@@ -8,7 +8,7 @@
 template<class T>
 class State {
 private:
-    T *state;
+    T state;
     double cost;
     double costSum;
     double uCostSum;
@@ -48,7 +48,7 @@ public:
         return costSum;
     }
 
-    T *getState() const {
+    T getState() const {
         return state;
     }
 
@@ -75,7 +75,7 @@ public:
     }
 
 
-    State(T *state, double cost) : state(state), cost(cost), costSum(0),uCostSum(0),dad(nullptr),visited(false) {}
+    State(T state, double cost) : state(state), cost(cost) {}
 
 };
 

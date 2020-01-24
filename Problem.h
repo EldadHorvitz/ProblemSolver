@@ -17,13 +17,7 @@ public:
 
     Problem();
 
-    Problem(const Point &start, const Point &end);
-
     void insertLine(string str);
-
-    void setStart(const Point &start);
-
-    void setEnd(const Point &end);
 
     const Point &getStart() const;
 
@@ -33,16 +27,25 @@ public:
 
     void insertStartPoint(string str);
 
+    void insertToState();
+
+    State<Point *> *getInit() override;
+
+    State<Point *> *getGoal() override;
+
+    list<State<Point *> *> getNeighbours(State<Point> s) override;
+
+    State<Point *> *locateState(Point *p);
+
+
 private:
-    State<Point*>* start;
-    State<Point*>* end;
-    // Point start = Point(0, 0);
- //   Point end = Point(0, 0);
+    State<Point *> *start;
+    State<Point *> *end;
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
     int colSize;
+    list<State<Point *> *> matrixStates;
 
-    list <Point> neighbors(Point p);
 };
 
 
