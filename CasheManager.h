@@ -12,18 +12,18 @@ using namespace std;
 #include <iterator>
 #include <fstream>
 #include <functional>
-
+#include "Problem.h"
+#include "Point.h"
 
 template <class P,class S>
 class CasheManager {
-
-
 private:
-    map<P, S> myMap;
-    list<P> myList;
+    map<P, S> *myMap;
+    list<P> *myList;
     unsigned int size;
     unsigned int counter;
 public:
+    virtual ~CasheManager();
     CasheManager();
     bool count(P key);
     void insert(P key, S obj);
