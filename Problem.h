@@ -17,13 +17,7 @@ public:
 
     Problem();
 
-    Problem(const Point &start, const Point &end);
-
     void insertLine(string str);
-
-    void setStart(const Point &start);
-
-    void setEnd(const Point &end);
 
     const Point &getStart() const;
 
