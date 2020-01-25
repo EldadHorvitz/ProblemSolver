@@ -29,22 +29,22 @@ public:
 
     void insertToState();
 
-    State<Point *> *getInit() override;
+    State<Point* > *getInit() override;
 
-    State<Point *> *getGoal() override;
+    State<Point* > *getGoal() override;
 
-    list<State<Point *> *> getNeighbours(State<Point> s) override;
+    list<State<Point* > *> *getNeighbours(State<Point*> s) override;
 
-    State<Point *> *locateState(Point *p);
+    State<Point > *locateState(Point *p);
 
 
 private:
-    State<Point *> *start;
-    State<Point *> *end;
+    State<Point* > *start;
+    State<Point > *end;
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
     int colSize;
-    list<State<Point *> *> matrixStates;
+    list<State<Point > *> matrixStates;
 
 };
 
