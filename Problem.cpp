@@ -86,29 +86,29 @@ State<Point> *Problem::getGoal() {
 }
 
 
-list<State<Point> *> *Problem::getNeighbours(State<Point> *p) {
-    list<State<Point> *>* listN;
+list<State<Point> *> Problem::getNeighbours(State<Point> *p) {
+    list<State<Point> *> listN;
     int x1 = p->getState().getX();
     int y1 = p->getState().getY();
     //x+1,y
     if (!(x1 + 1 > this->rowSize)) {
         State<Point> *g = this->locateState(Point(x1, y1));
-        listN->push_back(g);
+        listN.push_back(g);
     }
     //x,y+1
     if (!(y1 + 1 > this->colSize)) {
         State<Point> *g = this->locateState(Point(x1, y1 + 1));
-        listN->push_back(g);
+        listN.push_back(g);
     }
     //x-1,y
     if (!(x1 - 1 < 0)) {
         State<Point> *g = this->locateState(Point(x1 - 1, y1));
-        listN->push_back(g);
+        listN.push_back(g);
     }
     //x,y-1
     if (!(y1 - 1 < 0)) {
         State<Point> *g = this->locateState(Point(x1, y1 - 1));
-        listN->push_back(g);
+        listN.push_back(g);
     }
     return listN;
 }

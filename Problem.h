@@ -33,7 +33,7 @@ public:
 
     State<Point > *locateState(Point p);
 
-    list<State<Point> *> *getNeighbours(State<Point> *s) override;
+    list<State<Point> *> getNeighbours(State<Point> *s) override;
 
 
 private:

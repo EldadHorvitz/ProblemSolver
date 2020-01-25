@@ -23,7 +23,7 @@ public:
     DFS():counter(0) {}
 
     S search(Searchable<T>* s){
-        stack <State<T>*> *open=new stack <State<T*>*>();
+        stack <State<T>*> *open=new stack <State<T>*>();
         s->getInit()->setCostSum(1);
         open->push(s->getInit());
         while (!open->empty()){

@@ -38,6 +38,7 @@ public:
                 return getSolution(n, s->getInit());
             }
             list < State<T> * > l = s->getNeighbours(n);
+
             for (State<T> *s1:l) {
                 update(s1, s);
                 if ((!has(open, s1)) && (!has(close, s1))) {
