@@ -8,11 +8,11 @@
 template<class T>
 class State {
 private:
-    T state;
+    T* state;
     double cost;
     double costSum;
     double uCostSum;
-    State<T> *dad;
+    State<T*>* dad;
     bool visited;
 public:
     virtual ~State() {
@@ -40,19 +40,19 @@ public:
     }
 
 
-    void setDad(State<T> *dad) {
-        State::dad = dad;
+    void setDad(State<T*>* dad1) {
+        State::dad = dad1;
     }
 
     double getCostSum() const {
         return costSum;
     }
 
-    T getState() const {
+    T* getState() const {
         return state;
     }
 
-    State<T> *getDad() const {
+    State<T*> *getDad() const {
         return dad;
     }
 
@@ -61,21 +61,21 @@ public:
     }
 
 
-    bool equals(State<T> *s) {
+    bool equals(State<T*> *s) {
         state->equals(s->getState());
     }
 
     // template<class T>
-    bool operator<(State<T> *p1) {
+    bool operator<(State<T*> *p1) {
         return p1->getCostSum() < this->getCostSum();
     }
 
-    bool operator==(State<T> *p1) {
+    bool operator==(State<T*> *p1) {
         return (p1->getState() == this->getState());
     }
 
 
-    State(T state, double cost) : state(state), cost(cost) {}
+    State(T *state1, double cost1) : state(state1),cost(cost1),costSum(0),uCostSum(0),dad(nullptr),visited(false) {}
 
 };
 

@@ -11,7 +11,7 @@ template<class T,class S>
 
 class Searcher {
 public:
-    virtual S search(Searchable<T> s) = 0;
+    virtual S search(Searchable<T> *s) = 0;
     //returns how many states we passed until we reached the solution
     virtual int getNumLength()=0;
 

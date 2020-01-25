@@ -1,11 +1,12 @@
 //
-// Created by eldad on 13/01/2020.
+// Created by eldad on 24/01/2020.
 //
 
-#include "CasheManager.h"
+#include "Cashe.h"
+
 
 template<class P, class S>
-S CasheManager<P, S>:: get(P key){
+S Cashe<P, S>:: get(P key){
     if(this->myMap.count(key)) {
         myList->remove(key);
         myList->push_front(key);
@@ -34,7 +35,7 @@ S CasheManager<P, S>:: get(P key){
 
 }
 template<class P, class S>
-bool CasheManager<P, S>:: count(P key){
+bool Cashe<P, S>:: count(P key){
     if(this->myMap->count(key)) {
         return true;
     } else {
@@ -47,7 +48,7 @@ bool CasheManager<P, S>:: count(P key){
 
 }
 template<class P, class S>
-void CasheManager<P, S>:: insert(P key, S obj){
+void Cashe<P, S>:: insert(P key, S obj){
     if(this->myMap.count(key)) {
         *myMap[key]=obj;
         myList->remove(key);
@@ -81,12 +82,12 @@ void CasheManager<P, S>:: insert(P key, S obj){
 }
 
 template<class P, class S>
-CasheManager<P, S>::~CasheManager() {
+Cashe<P, S>::~Cashe() {
 
 }
 
 template<class P, class S>
-CasheManager<P, S>::CasheManager():myMap(new map<P,S>()), myList(new list<P>()), size(5), counter(0) {}
+Cashe<P, S>::Cashe():myMap(new map<P,S>()), myList(new list<P>()), size(5), counter(0) {}
 
 
 

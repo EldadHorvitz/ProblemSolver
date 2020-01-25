@@ -65,19 +65,23 @@ void MyTestClientHandler::handleClient(int socket) {
         }
         token = "";
     }
+    /*
     CasheManager<Problem*,string>* cm;
 
-    cm=new CasheManager<Problem*,string>();
-    /*
-    if (cm->count(problem)){
-        solution=cm->get(problem);
-    }else{
-        Solver<Problem*,string> *so;
-        so=new OA<Problem*,string>();
-        solution=so->solve(problem);
-        cm->insert(problem,solution);
-    }
-*/
+       cm=new CasheManager<Problem*,string> ();
+
+       if (cm->count(problem)){
+           solution=cm->get(problem);
+       }else{
+           Solver<Problem*,string> *so;
+           so=new OA<Problem*,string>();
+           solution=so->solve(problem);
+           cm->insert(problem,solution);
+       }*/
+    Solver<Problem,string> *so;
+    so=new OA<Problem,string>();
+    solution=so->solve(problem);
+
 }
 
 

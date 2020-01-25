@@ -39,7 +39,7 @@ void Problem::insertToState() {
         for (j = 0; j < this->colSize; j++) {
             Point *p = new Point(i, j);
             double value = this->matrix[i][j];
-            State<Point *> *o = new State<Point *>(p, value);
+            State<Point> *o = new State<Point>(p, value);
             this->matrixStates.push_back(o);
         }
     }
@@ -49,7 +49,7 @@ void Problem::insertToState() {
 void Problem::insertStartPoint(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
-    int p1;
+    int p1=0;
     while ((pos = str.find(delimiter)) != std::string::npos) {
         p1 = (stoi(str.substr(0, pos)));
         str.erase(0, pos + delimiter.length());
@@ -57,14 +57,14 @@ void Problem::insertStartPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point *p = new Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point *> *o = new State<Point *>(p, value);
+    State<Point > *o = new State<Point >(p, value);
     this->start = o;
 }
 
 void Problem::insertEndPoint(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
-    int p1;
+    int p1=0;
     while ((pos = str.find(delimiter)) != std::string::npos) {
         p1 = (stoi(str.substr(0, pos)));
         str.erase(0, pos + delimiter.length());
@@ -72,50 +72,50 @@ void Problem::insertEndPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point *p = new Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point *> *o = new State<Point *>(p, value);
+    State<Point > *o = new State<Point >(p, value);
     this->end = o;
 }
 
 
-State<Point *> *Problem::getInit() {
+State<Point* > *Problem::getInit() {
     return this->start;
 }
 
-State<Point *> *Problem::getGoal() {
+State<Point > *Problem::getGoal() {
     return this->end;
 }
 
-list<State<Point *> *> Problem::getNeighbours(State<Point> p) {
+list<State<Point > *> *Problem::getNeighbours(State<Point> p) {
 
-    list<State<Point *> *> listN;
-    int x1 = p.getState().getX();
-    int y1 = p.getState().getY();
+    list<State<Point> *>* listN=new list<State<Point> *>();
+    int x1 = p.getState()->getX();
+    int y1 = p.getState()->getY();
     //x+1,y
     if (!(x1 + 1 > this->rowSize)) {
-        State<Point *> *g = this->locateState(new Point(x1, y1));
-        listN.push_back(g);
+        State<Point > *g = this->locateState(new Point(x1, y1));
+        listN->push_back(g);
     }
     //x,y+1
     if (!(y1 + 1 > this->colSize)) {
-        State<Point *> *g = this->locateState(new Point(x1, y1 + 1));
-        listN.push_back(g);
+        State<Point > *g = this->locateState(new Point(x1, y1 + 1));
+        listN->push_back(g);
     }
     //x-1,y
     if (!(x1 - 1 < 0)) {
-        State<Point *> *g = this->locateState(new Point(x1 - 1, y1));
-        listN.push_back(g);
+        State<Point > *g = this->locateState(new Point(x1 - 1, y1));
+        listN->push_back(g);
     }
     //x,y-1
     if (!(y1 - 1 < 0)) {
-        State<Point *> *g = this->locateState(new Point(x1, y1 - 1));
-        listN.push_back(g);
+        State<Point > *g = this->locateState(new Point(x1, y1 - 1));
+        listN->push_back(g);
     }
     return listN;
 
 }
 
-State<Point *> *Problem::locateState(Point *p) {
-    for (State<Point *> *c:this->matrixStates) {
+State<Point> *Problem::locateState(Point *p) {
+    for (State<Point > *c:this->matrixStates) {
         if (c->getState()->equals(p)) {
             return c;
         }
