@@ -11,15 +11,16 @@
 #include "State.h"
 
 using namespace std;
-
+static int probCounter=0;
 class Problem : public Searchable<Point> {
+
 public:
 
     Problem();
 
     void insertLine(string str);
 
-
+    string toString();
     void insertEndPoint(string str);
 
     void insertStartPoint(string str);
@@ -36,7 +37,9 @@ public:
     list<State<Point> *> getNeighbours(State<Point> *s) override;
 
 
+
 private:
+    int name;
     State<Point > *start;
     State<Point > *end;
     vector<vector<double >> matrix;

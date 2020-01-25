@@ -5,9 +5,20 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 #include "Problem.h"
 
-Problem::Problem() {}
+Problem::Problem() {
+    this->name=probCounter;
+    probCounter++;
+}
+string Problem::toString(){
+    stringstream ss;
+    int x=this->name;
+    ss << x;
+    string str = ss.str();
+    return str;
+}
 
 
 void Problem::insertLine(string str) {
