@@ -7,6 +7,7 @@
 
 #include "State.h"
 #include <list>
+#include "Point.h"
 
 template<class T>
 class Searchable {
@@ -16,7 +17,7 @@ public:
 
     virtual State<T> *getGoal() = 0;
 
-    virtual std::list<State<T> *> *getNeighbours(State<T>* s) = 0;
+    virtual std::list<State<T> *> *getNeighbours(State<T> *s) = 0;
 };
 
 

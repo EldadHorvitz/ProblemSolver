@@ -94,9 +94,9 @@ public:
         return q;
     }
 
-    void update(State<T> *t, Searchable<T> s) {
+    void update(State<T> *t, Searchable<T> *s) {
         Point cur = (Point ) t->getState();
-        Point dst = (Point ) s.getGoal()->getState();
+        Point dst = (Point ) s->getGoal()->getState();
         double x = dst.getX() - cur.getX();
         if (x < 0) {
             x = x * (-1);
