@@ -58,11 +58,14 @@ public:
         }
 
     }
-    bool has (queue <State<T>*> q,State<T> *s){
-        for (State<T>* s1:q){
-            if (s==s1){
+
+    bool has(queue<State<T> *> q, State<T> *s) {
+        while (!q.empty()){
+            State<T> *temp=q.front();
+            if (temp->getState()==s->getState()){
                 return true;
             }
+            q.pop();
         }
         return false;
     }
@@ -82,13 +85,15 @@ public:
             a=q.front();
             q.pop();
         }
-        a=temp.pop();
+        a=temp.front();
+        temp.pop();
         q.push(min);
         while(!temp.empty()){
             if (!(a==min)){
                 temp.push(a);
             }
-            a=q.pop();
+            a=q.front();
+            q.pop();
         }
         return q;
     }
