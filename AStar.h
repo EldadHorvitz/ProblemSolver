@@ -94,14 +94,14 @@ public:
         return q;
     }
 
-    void update(State<T*> *t, Searchable<T> s) {
-        Point *cur = (Point *) t->getState();
-        Point *dst = (Point *) s.getGoal()->getState();
-        double x = dst->getX() - cur->getX();
+    void update(State<T> *t, Searchable<T> s) {
+        Point cur = (Point ) t->getState();
+        Point dst = (Point ) s.getGoal()->getState();
+        double x = dst.getX() - cur.getX();
         if (x < 0) {
             x = x * (-1);
         }
-        double y = dst->getY() - cur->getY();
+        double y = dst.getY() - cur.getY();
         if (y < 0) {
             y = y * (-1);
         }
