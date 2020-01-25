@@ -109,17 +109,17 @@ public:
         t->setUCostSum(dist);
     }
 
-    string getSolution(State<T> *goal, State<T> *origin) {
+    string getSolution(State<T> *goal,State<T> *origin) {
         string solution1 = "";
-        vector < State<T> * > v = new vector<State<T> *>();
+        vector < State<T> * >* v = new vector<State<T> *>();
         State<T> *temp = goal;
         int count = 0;
-        while (!(temp == origin)) {
-            v.insert(temp);
+        while (!(temp->getState() == origin->getState())) {
+            v->insert(temp);
             temp = temp->getDad();
             count++;
         }
-        v.insert(temp);
+        v->insert(temp);
         int i;
         State<T> *cur;
         State<T> *son;
@@ -132,20 +132,19 @@ public:
             } else {
                 f = false;
             }
-            Point *pCur = (Point *) cur->getState();
-            Point *pSon = (Point *) cur->getState();
-            if (pCur->getX() > pSon->getX()) {
+            Point pCur = (Point ) cur->getState();
+            Point pSon = (Point ) son->getState();
+            if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur->getX() < pSon->getX()) {
+            } else if (pCur.getX() < pSon.getX()) {
                 solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur->getY() > pSon->getY()) {
+            } else if (pCur.getY() > pSon.getY()) {
                 solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur->getY() < pSon->getY()) {
+            } else if (pCur.getY() < pSon.getY()) {
                 solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
             }
         }
         return solution1;
-
     }
 
 
