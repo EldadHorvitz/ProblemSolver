@@ -31,7 +31,8 @@ public:
         while (!open.empty()) {
             open = priority(open);
             counter++;
-            State<T> *n = open.pop();
+            State<T> *n = open.front();
+            open.pop();
             update(n, s);
             close.push(n);
             if (n == s->getGoal()) {
@@ -75,22 +76,26 @@ public:
 
     queue<State<T> *> priority(queue<State<T> *> q) {
         queue < State<T> * > temp;
-        State<T> *a = q.pop();
+        State<T> *a = q.front();
+        q.pop();
         State<T> *min = a;
         while (!q.empty()) {
             if ((min->getCostSum() + min->getUCostSum()) < (a->getCostSum() + a->getUCostSum())) {
                 min = a;
             }
             temp.push(a);
-            a = q.pop();
+            a = q.front();
+            q.pop();
         }
-        a = temp.pop();
+        a = temp.front();
+        temp.pop();
         q.push(min);
         while (!temp.empty()) {
             if (!(a == min)) {
                 temp.push(a);
             }
-            a = q.pop();
+            a = q.front();
+            q.pop();
         }
         return q;
     }
@@ -112,18 +117,18 @@ public:
 
     string getSolution(State<T> *goal,State<T> *origin) {
         string solution1 = "";
-        vector < State<T> * >* v = new vector<State<T> *>();
-        State<T> *temp = goal;
+        vector < State<T>  > v;
+        State<T> temp = *goal;
         int count = 0;
-        while (!(temp->getState() == origin->getState())) {
-            v->insert(temp);
-            temp = temp->getDad();
+        while (!(temp.getState() == origin->getState())) {
+            v.push_back(temp);
+            temp = *(temp.getDad());
             count++;
         }
-        v->insert(temp);
+        v.push_back(temp);
         int i;
-        State<T> *cur;
-        State<T> *son;
+        State<T> cur;
+        State<T> son;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];
@@ -133,8 +138,8 @@ public:
             } else {
                 f = false;
             }
-            Point pCur = (Point ) cur->getState();
-            Point pSon = (Point ) son->getState();
+            Point pCur = (Point ) cur.getState();
+            Point pSon = (Point ) son.getState();
             if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getX() < pSon.getX()) {

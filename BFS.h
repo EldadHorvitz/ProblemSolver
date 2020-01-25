@@ -22,13 +22,14 @@ public:
     BFS():counter(0) {}
 
     S search(Searchable<T>* s){
-        queue <State<T>*> *open=new queue <State<T>*>();
+        queue <State<T>*> open;
         s->getInit()->setCostSum(1);
-        open->push(s->getInit());
-        while (!open->empty()){
+        open.push(s->getInit());
+        while (!open.empty()){
             counter++;
             State<T> * n;
-            n = open->pop();
+            n = open.front();
+            open.pop();
             n->setVisited(true);
             if (n==s->getGoal()){
                 return getSolution(n,s->getInit());
@@ -38,7 +39,7 @@ public:
                 if (!s1->isVisited()){
                     s1->setCostSum(1+n->getCostSum());
                     s1->setDad(n);
-                    open->push(s1);
+                    open.push(s1);
                 }
 
             }
@@ -50,18 +51,18 @@ public:
     }
     string getSolution(State<T> *goal,State<T> *origin) {
         string solution1 = "";
-        vector < State<T> * >* v = new vector<State<T> *>();
-        State<T> *temp = goal;
+        vector < State<T>  > v;
+        State<T> temp = *goal;
         int count = 0;
-        while (!(temp->getState() == origin->getState())) {
-            v->insert(temp);
-            temp = temp->getDad();
+        while (!(temp.getState() == origin->getState())) {
+            v.push_back(temp);
+            temp = *(temp.getDad());
             count++;
         }
-        v->insert(temp);
+        v.push_back(temp);
         int i;
-        State<T> *cur;
-        State<T> *son;
+        State<T> cur;
+        State<T> son;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];
@@ -71,8 +72,8 @@ public:
             } else {
                 f = false;
             }
-            Point pCur = (Point ) cur->getState();
-            Point pSon = (Point ) son->getState();
+            Point pCur = (Point ) cur.getState();
+            Point pSon = (Point ) son.getState();
             if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getX() < pSon.getX()) {
