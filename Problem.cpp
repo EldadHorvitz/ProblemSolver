@@ -37,9 +37,9 @@ void Problem::insertToState() {
     int j;
     for (i = 0; i < this->rowSize; i++) {
         for (j = 0; j < this->colSize; j++) {
-            Point *p = new Point(i, j);
+            Point p =  Point(i, j);
             double value = this->matrix[i][j];
-            State<Point *> *o = new State<Point *>(p, value);
+            State<Point > *o = new State<Point >(p, value);
             this->matrixStates.push_back(o);
         }
     }

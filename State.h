@@ -8,7 +8,7 @@
 template<class T>
 class State {
 private:
-    T* state;
+    T state;
     double cost;
     double costSum;
     double uCostSum;
