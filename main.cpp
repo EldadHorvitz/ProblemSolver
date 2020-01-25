@@ -2,6 +2,7 @@
 #include "MySerialServer.h"
 #include "Server.h"
 #include "MyTestClientHandler.h"
+#include "CasheManager.h"
 
 using namespace std;
 

@@ -4,7 +4,6 @@
 
 #ifndef EX4_CASHEMANAGER_H
 #define EX4_CASHEMANAGER_H
-using namespace std;
 
 #include <map>
 #include <list>
@@ -15,7 +14,9 @@ using namespace std;
 #include "Problem.h"
 #include "Point.h"
 
-template <class P,class S>
+using namespace std;
+
+template<class P, class S>
 class CasheManager {
 private:
     map<P, S> *myMap;
@@ -24,9 +25,14 @@ private:
     unsigned int counter;
 public:
     virtual ~CasheManager();
-    CasheManager();
+
+    CasheManager() {}
+
+
     bool count(P key);
+
     void insert(P key, S obj);
+
     S get(P key);
 
 

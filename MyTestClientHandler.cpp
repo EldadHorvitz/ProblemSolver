@@ -10,6 +10,8 @@
 #include "OA.h"
 #include <algorithm>
 #include <sstream>
+#include "string"
+
 
 using namespace std;
 
@@ -65,9 +67,9 @@ void MyTestClientHandler::handleClient(int socket) {
         }
         token = "";
     }
-    CasheManager<Problem*,string>* cm;
+    CasheManager<Problem*,string>*cm;
 
-    cm=new CasheManager<Problem*,string>();
+   cm=new CasheManager<Problem*,string>();
     /*
     if (cm->count(problem)){
         solution=cm->get(problem);
