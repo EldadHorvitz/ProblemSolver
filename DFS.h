@@ -62,8 +62,8 @@ public:
         }
         v.push_back(temp);
         int i;
-        State<T> cur;
-        State<T> son;
+        State<T> cur=*goal;
+        State<T> son=*goal;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];

@@ -71,14 +71,16 @@ public:
     }
     queue <State<T>*> priority(queue <State<T>*> q){
         queue <State<T>*> temp;
-        State<T>* a=q.pop();
+        State<T>* a=q.front();
+        q.pop();
         State<T>* min=a;
         while(!q.empty()){
             if (min->getCostSum()<a->getCostSum()){
                 min=a;
             }
             temp.push(a);
-            a=q.pop();
+            a=q.front();
+            q.pop();
         }
         a=temp.pop();
         q.push(min);
@@ -102,8 +104,8 @@ public:
         }
         v.push_back(temp);
         int i;
-        State<T> cur;
-        State<T> son;
+        State<T> cur= *goal;
+        State<T> son= *goal;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];
