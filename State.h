@@ -40,7 +40,7 @@ public:
     }
 
 
-    void setDad(State<T*>* dad1) {
+    void setDad(State<T>* dad1) {
         State::dad = dad1;
     }
 
