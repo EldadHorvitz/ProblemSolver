@@ -9,6 +9,7 @@
 
 
 using namespace std;
+
 #include <queue>
 #include <list>
 #include <string>
@@ -20,25 +21,26 @@ private:
     int counter;
 public:
 
-    AStar():counter(0) {}
+    AStar() : counter(0) {}
 
-    S search(Searchable<T>* s) {
-        queue < State<T> * > open;
+    S search(Searchable<T> *s) {
+        deque<State<T> *> open;
         s->getInit()->setCostSum(s->getInit()->getCost());
         update(s->getInit(), s);
-        open.push(s->getInit());
-        queue < State<T> * > close;
+        open.push_back(s->getInit());
+        deque<State<T> *> close;
         while (!open.empty()) {
             open = priority(open);
             counter++;
             State<T> *n = open.front();
-            open.pop();
+            open.push_front();
+           // open.push_front();
             update(n, s);
             close.push(n);
             if (n == s->getGoal()) {
                 return getSolution(n, s->getInit());
             }
-            list < State<T> * > l = s->getNeighbours(n);
+            list<State<T> *> l = s->getNeighbours(n);
 
             for (State<T> *s1:l) {
                 update(s1, s);
@@ -60,7 +62,8 @@ public:
 
     }
 
-    bool has(queue<State<T> *> q, State<T> *s) {
+
+    bool has(deque<State<T> *> q, State<T> *s) {
         for (State<T> *s1:q) {
             if (s == s1) {
                 return true;
@@ -74,8 +77,8 @@ public:
     }
 
 
-    queue<State<T> *> priority(queue<State<T> *> q) {
-        queue < State<T> * > temp;
+    deque<State<T> *> priority(deque<State<T> *> q) {
+        deque<State<T> *> temp;
         State<T> *a = q.pop();
         State<T> *min = a;
         while (!q.empty()) {
@@ -97,8 +100,8 @@ public:
     }
 
     void update(State<T> *t, Searchable<T> *s) {
-        Point cur = (Point ) t->getState();
-        Point dst = (Point ) s->getGoal()->getState();
+        Point cur = (Point) t->getState();
+        Point dst = (Point) s->getGoal()->getState();
         double x = dst.getX() - cur.getX();
         if (x < 0) {
             x = x * (-1);
@@ -111,17 +114,18 @@ public:
         t->setUCostSum(dist);
     }
 
-    string getSolution(State<T> *goal,State<T> *origin) {
+    string getSolution(State<T> *goal, State<T> *origin) {
         string solution1 = "";
-        vector < State<T> * >* v = new vector<State<T> *>();
+        vector<State<T> *> &v = new vector<State<T> *>();
         State<T> *temp = goal;
         int count = 0;
         while (!(temp->getState() == origin->getState())) {
-            v->insert(temp);
+            v.push_back(temp);
+            //v->insert(temp);
             temp = temp->getDad();
             count++;
         }
-        v->insert(temp);
+        v.push_back(temp);
         int i;
         State<T> *cur;
         State<T> *son;
@@ -134,8 +138,8 @@ public:
             } else {
                 f = false;
             }
-            Point pCur = (Point ) cur->getState();
-            Point pSon = (Point ) son->getState();
+            Point pCur = (Point) cur->getState();
+            Point pSon = (Point) son->getState();
             if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getX() < pSon.getX()) {
