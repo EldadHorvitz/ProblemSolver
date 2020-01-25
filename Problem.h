@@ -19,9 +19,6 @@ public:
 
     void insertLine(string str);
 
-    const Point &getStart() const;
-
-    const Point &getEnd() const;
 
     void insertEndPoint(string str);
 
@@ -29,17 +26,18 @@ public:
 
     void insertToState();
 
-    State<Point* > *getInit() override;
+    State<Point > *getInit() override;
 
-    State<Point* > *getGoal() override;
+    State<Point > *getGoal() override;
 
-    list<State<Point* > *> *getNeighbours(State<Point*> s) override;
 
-    State<Point > *locateState(Point *p);
+    State<Point > *locateState(Point p);
+
+    list<State<Point> *> *getNeighbours(State<Point> *s) override;
 
 
 private:
-    State<Point* > *start;
+    State<Point > *start;
     State<Point > *end;
     vector<vector<double >> matrix;
     int rowSize = this->matrix.size();;
