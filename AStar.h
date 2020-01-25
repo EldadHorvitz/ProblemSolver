@@ -61,12 +61,14 @@ public:
     }
 
     bool has(queue<State<T> *> q, State<T> *s) {
+
         for (State<T> *s1:q) {
             if (s == s1) {
                 return true;
             }
         }
         return false;
+
     }
 
     int getNumLength() {
