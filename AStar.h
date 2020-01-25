@@ -9,7 +9,6 @@
 
 
 using namespace std;
-
 #include <queue>
 #include <list>
 #include <string>
@@ -21,26 +20,25 @@ private:
     int counter;
 public:
 
-    AStar() : counter(0) {}
+    AStar():counter(0) {}
 
-    S search(Searchable<T> *s) {
-        deque<State<T> *> open;
+    S search(Searchable<T>* s) {
+        queue < State<T> * > open;
         s->getInit()->setCostSum(s->getInit()->getCost());
         update(s->getInit(), s);
-        open.push_back(s->getInit());
-        deque<State<T> *> close;
+        open.push(s->getInit());
+        queue < State<T> * > close;
         while (!open.empty()) {
             open = priority(open);
             counter++;
             State<T> *n = open.front();
-            open.push_front();
-           // open.push_front();
+            open.pop();
             update(n, s);
             close.push(n);
             if (n == s->getGoal()) {
                 return getSolution(n, s->getInit());
             }
-            list<State<T> *> l = s->getNeighbours(n);
+            list < State<T> * > l = s->getNeighbours(n);
 
             for (State<T> *s1:l) {
                 update(s1, s);
@@ -62,8 +60,7 @@ public:
 
     }
 
-
-    bool has(deque<State<T> *> q, State<T> *s) {
+    bool has(queue<State<T> *> q, State<T> *s) {
         for (State<T> *s1:q) {
             if (s == s1) {
                 return true;
@@ -77,31 +74,35 @@ public:
     }
 
 
-    deque<State<T> *> priority(deque<State<T> *> q) {
-        deque<State<T> *> temp;
-        State<T> *a = q.pop();
+    queue<State<T> *> priority(queue<State<T> *> q) {
+        queue < State<T> * > temp;
+        State<T> *a = q.front();
+        q.pop();
         State<T> *min = a;
         while (!q.empty()) {
             if ((min->getCostSum() + min->getUCostSum()) < (a->getCostSum() + a->getUCostSum())) {
                 min = a;
             }
             temp.push(a);
-            a = q.pop();
+            a = q.front();
+            q.pop();
         }
-        a = temp.pop();
+        a = temp.front();
+        temp.pop();
         q.push(min);
         while (!temp.empty()) {
             if (!(a == min)) {
                 temp.push(a);
             }
-            a = q.pop();
+            a = q.front();
+            q.pop();
         }
         return q;
     }
 
     void update(State<T> *t, Searchable<T> *s) {
-        Point cur = (Point) t->getState();
-        Point dst = (Point) s->getGoal()->getState();
+        Point cur = (Point ) t->getState();
+        Point dst = (Point ) s->getGoal()->getState();
         double x = dst.getX() - cur.getX();
         if (x < 0) {
             x = x * (-1);
@@ -114,21 +115,20 @@ public:
         t->setUCostSum(dist);
     }
 
-    string getSolution(State<T> *goal, State<T> *origin) {
+    string getSolution(State<T> *goal,State<T> *origin) {
         string solution1 = "";
-        vector<State<T> *> &v = new vector<State<T> *>();
-        State<T> *temp = goal;
+        vector < State<T>  > v;
+        State<T> temp = *goal;
         int count = 0;
-        while (!(temp->getState() == origin->getState())) {
+        while (!(temp.getState() == origin->getState())) {
             v.push_back(temp);
-            //v->insert(temp);
-            temp = temp->getDad();
+            temp = *(temp.getDad());
             count++;
         }
         v.push_back(temp);
         int i;
-        State<T> *cur;
-        State<T> *son;
+        State<T> cur= *goal;
+        State<T> son= *goal;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];
@@ -138,8 +138,8 @@ public:
             } else {
                 f = false;
             }
-            Point pCur = (Point) cur->getState();
-            Point pSon = (Point) son->getState();
+            Point pCur = (Point ) cur.getState();
+            Point pSon = (Point ) son.getState();
             if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getX() < pSon.getX()) {
