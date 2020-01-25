@@ -81,6 +81,7 @@ void MyTestClientHandler::handleClient(int socket) {
     Solver<Problem,string> *so;
     so=new OA<Problem,string>();
     solution=so->solve(problem);
+    cout<<solution<<endl;
 
 }
 
