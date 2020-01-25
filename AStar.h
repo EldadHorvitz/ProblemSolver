@@ -61,14 +61,14 @@ public:
     }
 
     bool has(queue<State<T> *> q, State<T> *s) {
-
-        for (State<T> *s1:q) {
-            if (s == s1) {
+        while (!q.empty()){
+            State<T> *temp=q.front();
+            if (temp->getState()==s->getState()){
                 return true;
             }
+            q.pop();
         }
         return false;
-
     }
 
     int getNumLength() {
