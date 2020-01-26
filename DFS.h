@@ -22,6 +22,16 @@ public:
 
     DFS():counter(0) {}
 
+    bool has(stack<State<T> *> q, State<T> *s) {
+        while (!q.empty()){
+            State<T> *temp=q.top();
+            if (temp->getState()==s->getState()){
+                return true;
+            }
+            q.pop();
+        }
+        return false;
+    }
     S search(Searchable<T>* s){
         State<T>* begin=s->getInit();
         stack <State<T>*> open;
@@ -40,7 +50,7 @@ public:
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
-                if (!s1->isVisited()&&!has(open,s1)){
+                if (!s1->isVisited()&&!has(open,s1)) {
                     s1->setCostSum(1+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
@@ -64,6 +74,7 @@ public:
             temp = *(temp.getDad());
             count++;
         }
+        cout<<"num of solution:"<<count<<endl;
         v.push_back(temp);
         int i;
         State<T> cur=*goal;
@@ -91,16 +102,8 @@ public:
         }
         return solution1;
     }
-    bool has(queue<State<T> *> q, State<T> *s) {
-        while (!q.empty()){
-            State<T> *temp=q.front();
-            if (temp->getState()==s->getState()){
-                return true;
-            }
-            q.pop();
-        }
-        return false;
-    }
+
+
 
 
 };
