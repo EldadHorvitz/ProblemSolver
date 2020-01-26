@@ -23,10 +23,11 @@ public:
     DFS():counter(0) {}
 
     S search(Searchable<T>* s){
+        State<T>* begin=s->getInit();
         stack <State<T>*> open;
-        s->getInit()->setCostSum(1);
-        open.push(s->getInit());
-        s->getInit()->setVisited(true);
+        begin->setCostSum(1);
+        open.push(begin);
+        begin->setVisited(true);
         while (!open.empty()){
             counter++;
             State<T> * n;
@@ -34,14 +35,16 @@ public:
             open.pop();
             n->setVisited(true);
             if (n->getState()==s->getGoal()->getState()){
-                return getSolution(n,s->getInit());
+                cout<<counter<<endl;
+                return getSolution(n,begin);
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
-                if (!s1->isVisited()){
+                if (!s1->isVisited()&&!has(open,s1)){
                     s1->setCostSum(1+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
+                    s1->setVisited(true);
                 }
 
             }
@@ -88,7 +91,16 @@ public:
         }
         return solution1;
     }
-
+    bool has(queue<State<T> *> q, State<T> *s) {
+        while (!q.empty()){
+            State<T> *temp=q.front();
+            if (temp->getState()==s->getState()){
+                return true;
+            }
+            q.pop();
+        }
+        return false;
+    }
 
 
 };

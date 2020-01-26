@@ -26,9 +26,10 @@ public:
     BstFS() : counter(0) {}
 
     S search(Searchable<T>* s){
+        State<T>* begin=s->getInit();
         queue <State<T>*> open;
-        s->getInit()->setCostSum(s->getInit()->getCost());
-        open.push(s->getInit());
+        begin->setCostSum(begin->getCost());
+        open.push(begin);
         queue <State<T>*> close;
         while (!open.empty()){
             open=priority(open);
@@ -37,7 +38,7 @@ public:
             open.pop();
             close.push(n);
             if (n->getState()==s->getGoal()->getState()){
-                return getSolution(n,s->getInit());
+                return getSolution(n,begin);
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
