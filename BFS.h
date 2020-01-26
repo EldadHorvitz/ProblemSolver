@@ -26,7 +26,7 @@ public:
     S search(Searchable<T> *s) {
         State<T> *begin = s->getInit();
         State<T> erd = State<T>((Point) begin->getState(), begin->getCost());
-
+        State<T> *goaling = s->getGoal();
         queue < State<T> * > open;
         begin->setCostSum(1);
         open.push(begin);
@@ -37,7 +37,7 @@ public:
             n = open.front();
             open.pop();
             n->setVisited(true);
-            if (n->getState() == s->getGoal()->getState()) {
+            if (n->getState() == goaling->getState()) {
                 string stringSol = getSolution(n, begin);
                 begin = nullptr;
                 cout << "num of nodes is:" << this->counter << endl;
@@ -108,9 +108,5 @@ public:
 };
 
 
-template<class T, class S>
-BFS<T, S>::~BFS() {
-
-}
 
 #endif //EX4_BFS_H

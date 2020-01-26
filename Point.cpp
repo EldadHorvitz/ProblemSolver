@@ -22,6 +22,3 @@ bool Point::operator==(Point p1) {
 }
 
 
-Point::~Point() {
-
-}

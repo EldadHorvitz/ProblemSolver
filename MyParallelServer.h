@@ -14,8 +14,6 @@ public:
 
     int open(int port, ClientHandler *client);
 
-   // ~MyParallelServer() {}
-
     void stop() override;
 
     virtual ~MyParallelServer();

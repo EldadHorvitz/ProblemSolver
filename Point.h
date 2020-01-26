@@ -19,7 +19,7 @@ public:
 
     int getY() const;
 
-    virtual ~Point();
+
 
 };
 

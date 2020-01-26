@@ -89,10 +89,8 @@ CasheManager<Problem*,string>* cm;
     solution = so->solve(problem);
     send(socket, solution.c_str(), solution.size(), 0);
     cout << solution << endl;
+    problem->getInit();
     return;;
 }
 
 
-MyTestClientHandler::~MyTestClientHandler() {
-
-}

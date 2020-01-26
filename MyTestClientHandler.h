@@ -13,7 +13,6 @@ class MyTestClientHandler : public ClientHandler {
 public:
     void handleClient(int socket) override;
 
-    virtual ~MyTestClientHandler();
 };
 
 

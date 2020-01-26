@@ -15,10 +15,6 @@ private:
     State<T>* dad;
     bool visited;
 public:
-    virtual ~State() {
-
-    }
-
     double getUCostSum() const {
         return uCostSum;
     }
