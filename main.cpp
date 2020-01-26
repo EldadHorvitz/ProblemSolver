@@ -3,6 +3,7 @@
 #include "Server.h"
 #include "MyTestClientHandler.h"
 #include "CasheManager.h"
+#include "MyParallelServer.h"
 
 using namespace std;
 
@@ -10,8 +11,13 @@ int main(int args, char *argv[]) {
 
 
     ClientHandler *c = new MyTestClientHandler();
-    int port = stoi(argv[1]);
-    server_side::Server *s = new MySerialServer();
+    int port = 5600;
+    try {
+        port = stoi(argv[1]);
+    } catch (exception e) {
+
+    }
+    server_side::Server *s = new MyParallelServer();
     s->open(port, c);
 
 

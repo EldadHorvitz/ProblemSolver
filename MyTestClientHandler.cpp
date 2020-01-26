@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <sstream>
 #include <thread>
+#include <strings.h>
 
 using namespace std;
 
@@ -25,7 +26,8 @@ void MyTestClientHandler::handleClient(int socket) {
     //reading from client
     Problem *problem = new Problem();
     string solution;
-    char buffer[1024] = {0};
+    char buffer[100000] = {0};
+    bzero(buffer, 100000);
     int numOfComma = 0;
     int firstTime = 1;
     string delimiter = "\n";
@@ -34,7 +36,11 @@ void MyTestClientHandler::handleClient(int socket) {
 
     m2.lock();
     while (1) {
-        read(socket, buffer, 1024);
+        bzero(buffer, 100000);
+        read(socket, buffer, 100000);
+        if ((buffer != NULL) && (buffer[0] == '\0')) {
+            continue;
+        }
         s += buffer;
         s.erase(std::remove(s.begin(), s.end(), '\r'), s.end());
         size_t pos = 0;
@@ -43,6 +49,7 @@ void MyTestClientHandler::handleClient(int socket) {
             if (token == "end\r\n" || token == "end\n" || token == "end\r" || token == "end") {
                 break;
             }
+            token.erase(std::remove(token.begin(), token.end(), '\n'), token.end());
             numOfComma = std::count(token.begin(), token.end(), ',');
             if (numOfComma > 1) {
                 problem->insertLine(token);
@@ -80,8 +87,9 @@ CasheManager<Problem*,string>* cm;
     Solver<Problem, string> *so;
     so = new OA<Problem, string>();
     solution = so->solve(problem);
-    cout << solution <<
-         endl;
+    send(socket, solution.c_str(), solution.size(), 0);
+    cout << solution << endl;
+    return;;
 }
 
 

@@ -74,7 +74,8 @@ void Problem::insertStartPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point p = Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point> *o = new State<Point>(p, value);
+
+    State<Point> *o =this->locateState(p);
     this->start = o;
 }
 
@@ -89,7 +90,7 @@ void Problem::insertEndPoint(string str) {
     int p2 = (stoi(str.substr(0, pos)));
     Point p = Point(p1, p2);
     double value = this->matrix[p1][p2];
-    State<Point> *o = new State<Point>(p, value);
+    State<Point> *o =this->locateState(p);
     this->end = o;
 }
 

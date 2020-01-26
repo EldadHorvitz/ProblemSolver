@@ -6,145 +6,101 @@
 #include "MySerialServer.h"
 #include "Server.h"
 #include "MyParallelServer.h"
-
+#include <string>
+#include <iostream>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <strings.h>
+#include "vector"
+#include "MyTestClientHandler.h"
 
 using namespace std;
 
-int runServerParallel(int port, ClientHandler *client) {
-/*
-    int client_socket_server;
-    int socketfd = socket(AF_INET, SOCK_STREAM, 0);
+//
+// Created by avi on 25/01/2020.
+//
+
+#include "MyParallelServer.h"
+#include "OA.h"
+
+bool m_connected;
+int MyParallelServer::open(int port, ClientHandler *ch) {
+
+    int portNo, listenFd;
+    struct sockaddr_in svrAdd, clntAdd;
+    int connFd;
+    vector<thread*> vec_thread;
 
 
-    if (socketfd == -1) {
-        //error
-        cerr << "could not create a socket" << endl;
-        return -1;
-    }
-    //bind socket to IP address
-    //we first create the sockaddr obj.
-    sockaddr_in address;//in means IP4
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = inet_addr("127.0.0.1");//give me any IP allocated for my machine.
-    address.sin_port = htons(port);
-    //we need to convert our number
-    //to a number that the network understands
+    portNo = port;
 
-    //the actual bind command
-    if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
-        cerr << "could not bind socket to an IP" << endl;
-        return -1;
+    if((portNo > 65535) || (portNo < 2000))
+    {
+        cerr << "Please enter a port number between 2000 - 65535" << endl;
+        return 0;
     }
 
-    if (listen(socketfd, 1) == -1) {
-        cerr << "Error during listening command" << endl;
+    //create socket
+    listenFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    if(listenFd < 0)
+    {
+        cerr << "Cannot open socket" << endl;
+        return 0;
     }
 
-    int client_socket;
-    int result = 0;
-    while (!server_side::isRun) {
-        fd_set rfds;
-        struct timeval tv;
-        tv.tv_sec = 120;//timout in seconds
-        setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
+    bzero((char*) &svrAdd, sizeof(svrAdd));
 
-        //select-add it
-        result = select(socketfd + 1, &rfds, (fd_set *) 0, (fd_set *) 0, &tv);
-        if (result > 0) {
-            // accepting a client
-            int addrlen = sizeof(address);
-            client_socket_server = accept(socketfd, (struct sockaddr *) &address, (socklen_t *) &addrlen);
+    svrAdd.sin_family = AF_INET;
+    svrAdd.sin_addr.s_addr = INADDR_ANY;
+    svrAdd.sin_port = htons(portNo);
 
-        } else {
-            server_side::isRun = true;
-            continue;
+    //bind socket
+    if(bind(listenFd, (struct sockaddr *)&svrAdd, sizeof(svrAdd)) < 0)
+    {
+        cerr << "Cannot bind" << endl;
+        return 0;
+    }
+
+    listen(listenFd, 10);
+    m_connected = true;
+    int noThread = 0;
+
+    while (noThread < 10 && m_connected)
+    {
+        socklen_t len = sizeof(clntAdd);
+
+        cout << "Listening" << endl;
+
+        connFd = accept(listenFd, (struct sockaddr *)&clntAdd, &len);
+
+        if (connFd < 0)
+        {
+            cerr << "Cannot accept connection" << endl;
+            return 0;
         }
-
-        client->handleClient(socketfd);
-        close(client_socket);
-    }
-
-    if (client_socket_server == -1) {
-        cerr << "Error accepting" << endl;
-        return -1;
-    }
-
-
-    close(socketfd);
-    */
-    //creates socket and checks if created
-    int socketFD = socket(AF_INET, SOCK_STREAM, 0);
-    if (socketFD == -1) {
-        std::cerr << "Could not create a socket" << std::endl;
-        return -1;
-    }
-    //binds socket to IP address (we want to listen to al IP)
-    sockaddr_in address;
-    address.sin_family = AF_INET;
-    // any IP in IPV4
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(port);
-    // Binds the socket to the given port at localhost.
-    if (bind(socketFD, (struct sockaddr *) &address, sizeof(address)) == -1) {
-        std::cerr << "Could not bind the socket to an IP" << std::endl;
-        return -2;
-    }
-    // listens to clients (1 can wait in the queue)
-    if (listen(socketFD, 1) == -1) {
-        std::cerr << "Error during listening command" << std::endl;
-        return -3;
-    } else {
-        std::cout << "Server is now listening ..." << std::endl;
-    }
-    int client_socket;
-    int result;
-    // accepts clients
-    while (!server_side::isRun) {
-        fd_set rfds;
-        FD_ZERO(&rfds);
-        FD_SET(socketFD, &rfds);
-        struct timeval tv;
-        tv.tv_sec = (long)120;
-        tv.tv_usec = 0;
-        result = select(socketFD+1, &rfds, (fd_set*)0, (fd_set*)0, &tv);
-        if (result > 0) {
-            socklen_t addrlen = sizeof(sockaddr_in);
-            client_socket = accept(socketFD, (struct sockaddr *) &address, &addrlen);
+        else
+        {
+            cout << "Connection successful" << endl;
         }
-        else {
-            server_side::isRun = true;
-            continue;
-        }
-        if (client_socket == -1) {
-            return -4;
-        }
-        thread tn(runServerParallel, port, client);
-        tn.detach();
-        client->handleClient(client_socket);
-        // close client socket
-        close(client_socket);
+        MyTestClientHandler* ch = new MyTestClientHandler();
+        //thread *t_var_command = new thread(&MyClientHandler::handleClient, ref(ch), connFd);
+       // ClientHandler* clientHandler = new MyTestClientHandler(new OA(new BestFirstSearch<string>), new FileCacheManager);
+        //ClientHandler* clientHandler = ch->clone();
+        thread *t_ch = new thread(&ClientHandler::handleClient, ref(ch), connFd);
+        vec_thread.push_back(t_ch);
+        noThread++;
     }
-    // close server socket
-    close(socketFD);
-    return 0;
+
+    for(int i = 0; i < vec_thread.size(); i++)
+    {
+        vec_thread[i]->join();
+    }
 }
-
-
-int MyParallelServer::open(int port, ClientHandler *client) {
-    thread tc(runServerParallel, port, client);
-    tc.join();
-
-}
-
-
-MyParallelServer::MyParallelServer() {}
-
-MyParallelServer::~MyParallelServer() {
-
-}
-
 
 void MyParallelServer::stop() {
-    return;
-
+    m_connected = false;
 }
+

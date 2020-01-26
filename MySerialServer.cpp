@@ -79,6 +79,3 @@ void MySerialServer::stop() {
 
 MySerialServer::MySerialServer() {}
 
-MySerialServer::~MySerialServer() {
-
-}
