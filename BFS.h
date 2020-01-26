@@ -28,7 +28,7 @@ public:
         State<T> erd=State<T>((Point) begin->getState(),begin->getCost());
 
         queue < State<T> * > open;
-        begin->setCostSum(1);
+        begin->setCostSum(begin->getCost());
         open.push(begin);
         begin->setVisited(true);
         while (!open.empty()) {
@@ -44,7 +44,7 @@ public:
             list<State<T> *> l = s->getNeighbours(n);
             for (State<T> *s1:l) {
                 if (!s1->isVisited()&&!has(open,s1)) {
-                    s1->setCostSum(1 + n->getCostSum());
+                    s1->setCostSum(s1->getCost()+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
                 }
