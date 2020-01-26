@@ -36,7 +36,7 @@ public:
             open.pop();
             update(n, s);
             close.push(n);
-            if (n == s->getGoal()) {
+            if (n->getState() == s->getGoal()->getState()) {
                 return getSolution(n, s->getInit());
             }
             list<State<T> *> l = s->getNeighbours(n);

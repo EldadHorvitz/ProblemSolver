@@ -31,7 +31,7 @@ public:
             n = open.front();
             open.pop();
             n->setVisited(true);
-            if (n==s->getGoal()){
+            if (n->getState()==s->getGoal()->getState()){
                 return getSolution(n,s->getInit());
             }
             list<State<T>*> l=s->getNeighbours(n);
