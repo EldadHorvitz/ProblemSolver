@@ -72,28 +72,30 @@ public:
     int getNumLength(){
         return counter;
     }
-    queue <State<T>*> priority(queue <State<T>*> q){
-        queue <State<T>*> temp;
-        State<T>* a=q.front();
+
+    queue<State<T> *> priority(queue<State<T> *> q) {
+        queue<State<T> *> temp;
+        State<T> *a = q.front();
         q.pop();
-        State<T>* min=a;
-        while(!q.empty()){
+        State<T> *min = a;
+        temp.push(a);
+        while (!q.empty()) {
+            a = q.front();
+            q.pop();
             if (min->getCostSum()<a->getCostSum()){
-                min=a;
+                min = a;
             }
             temp.push(a);
-            a=q.front();
-            q.pop();
         }
-        a=temp.front();
+        a = temp.front();
         temp.pop();
         q.push(min);
-        while(!temp.empty()){
-            if (!(a==min)){
-                temp.push(a);
+        while (!temp.empty()) {
+            if (!(a->getState() == min->getState())) {
+                q.push(a);
             }
-            a=q.front();
-            q.pop();
+            a = temp.front();
+            temp.pop();
         }
         return q;
     }
