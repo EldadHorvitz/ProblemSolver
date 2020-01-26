@@ -160,7 +160,6 @@ public:
         return solution1;
     }
 
-
 };
 
 
