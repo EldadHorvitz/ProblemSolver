@@ -73,7 +73,11 @@ public:
         return counter;
     }
 
+
     queue<State<T> *> priority(queue<State<T> *> q) {
+        if (q.empty()){
+            return q;
+        }
         queue<State<T> *> temp;
         State<T> *a = q.front();
         q.pop();
@@ -125,13 +129,13 @@ public:
             Point pCur = (Point ) cur.getState();
             Point pSon = (Point ) son.getState();
             if (pCur.getX() > pSon.getX()) {
-                solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur.getX() < pSon.getX()) {
                 solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
+            } else if (pCur.getX() < pSon.getX()) {
+                solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getY() > pSon.getY()) {
-                solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur.getY() < pSon.getY()) {
                 solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
+            } else if (pCur.getY() < pSon.getY()) {
+                solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
             }
         }
         return solution1;

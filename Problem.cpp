@@ -109,7 +109,7 @@ list<State<Point> *> Problem::getNeighbours(State<Point> *p) {
     int y1 = p->getState().getY();
     //x+1,y
     if (!(x1 + 1 > this->rowSize)) {
-        State<Point> *g = this->locateState(Point(x1, y1));
+        State<Point> *g = this->locateState(Point(x1+1, y1));
         listN.push_back(g);
     }
     //x,y+1
