@@ -80,6 +80,7 @@ CasheManager<Problem*,string>* cm;
     Solver<Problem, string> *so;
     so = new OA<Problem, string>();
     solution = so->solve(problem);
+    send(socket, solution.c_str(), solution.size(), 0);
     cout << solution <<
          endl;
 }
