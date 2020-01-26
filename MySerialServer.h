@@ -18,7 +18,7 @@ public:
 
     void stop() override;
 
-    virtual ~MySerialServer();
+   // virtual ~MySerialServer();
 
 private:
 };
