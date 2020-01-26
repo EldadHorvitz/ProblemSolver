@@ -38,6 +38,7 @@ public:
             open.pop();
             n->setVisited(true);
             if (n->getState() == s->getGoal()->getState()) {
+                cout<<counter<<endl;
                 return getSolution(n, begin);
             }
             list<State<T> *> l = s->getNeighbours(n);
