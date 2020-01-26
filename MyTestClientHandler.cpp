@@ -37,9 +37,9 @@ void MyTestClientHandler::handleClient(int socket) {
         read(socket, buffer, 1024);
         s += buffer;
         size_t pos = 0;
-        while ((pos = s.find('\n')) != string::npos) {
+        while ((pos = s.find(delimiter)) != string::npos) {
             token = s.substr(0, pos);
-            if (token == "end\r\n" || token == "end\n" || token == "end\r") {
+            if (token == "end\r\n" || token == "end\n" || token == "end\r" || token=="end") {
                 break;
             }
             numOfComma = std::count(token.begin(), token.end(), ',');
@@ -56,7 +56,7 @@ void MyTestClientHandler::handleClient(int socket) {
             }
             s.erase(0, pos + delimiter.length());
         }
-        if (token == "end\r\n" || token == "end\n" || token == "end\r") {
+        if (token == "end\r\n" || token == "end\n" || token == "end\r"|| token=="end") {
             break;
         }
         // token = "";
