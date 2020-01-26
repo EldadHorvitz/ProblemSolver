@@ -25,6 +25,7 @@ public:
     S search(Searchable<T>* s){
         stack <State<T>*> open;
         s->getInit()->setCostSum(1);
+        State<T>* WE=s->getInit();
         open.push(s->getInit());
         s->getInit()->setVisited(true);
         while (!open.empty()){
@@ -38,10 +39,11 @@ public:
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
-                if (!s1->isVisited()){
+                if (!s1->isVisited()&&!(s1->getState()==s->getInit()->getState())){
                     s1->setCostSum(1+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
+                    s1->setVisited(true);
                 }
 
             }
