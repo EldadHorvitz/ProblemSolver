@@ -78,6 +78,9 @@ public:
 
 
     queue<State<T> *> priority(queue<State<T> *> q) {
+        if (q.empty()){
+            return q;
+        }
         queue<State<T> *> temp;
         State<T> *a = q.front();
         q.pop();
