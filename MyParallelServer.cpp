@@ -94,7 +94,7 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
         noThread++;
     }
 
-    for(int i = 0; i < vec_thread.size(); i++)
+    for (int i = 0; i < vec_thread.size(); i++)
     {
         vec_thread[i]->join();
     }

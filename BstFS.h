@@ -8,7 +8,6 @@
 
 #include "Searcher.h"
 #include "Point.h"
-#include "Comparer.h"
 
 using namespace std;
 #include <queue>
@@ -18,6 +17,9 @@ template<class T,class S>
 class BstFS: public Searcher<T,S> {
 
 private:
+    bool operator()(State<Point> *s1,State<Point>* s2){
+        return (s1->getCostSum()>s2->getCostSum());
+    }
     int counter;
 public:
     virtual ~BstFS() {
@@ -38,7 +40,7 @@ public:
             State<T>* n=open.top();
             open.pop();
             close.push(n);
-            if (n->getState()==s->getGoal()->getState()){
+            if (n->getState()==s->getGoal()->getState()) {
                 return getSolution(n,begin);
             }
             list<State<T>*> l=s->getNeighbours(n);
