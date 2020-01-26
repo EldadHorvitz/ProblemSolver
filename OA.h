@@ -31,11 +31,11 @@ public:
     }
 
     S solve(P *p) {
-        string s1="BFS:\n"+this->BFS1->search(p)+"\n";
-       // string s2="DFS:\n"+this->DFS1->search(p)+"\n";
-      //  string s3="BstFS:\n"+this->BstFS1->search(p)+"\n";
-     //   string s4="AStar:\n"+this->AStar1->search(p)+"\n";
-        return s1;
+        //string s1="BFS:\n"+this->BFS1->search(p)+"\n";
+          //string s2="DFS:\n"+this->DFS1->search(p)+"\n";
+        string s3="BstFS:\n"+this->BstFS1->search(p)+"\n";
+       // string s4="AStar:\n"+this->AStar1->search(p)+"\n";
+        return s3;
 
     }
 };
