@@ -23,11 +23,11 @@ public:
     DFS():counter(0) {}
 
     S search(Searchable<T>* s){
+        State<T>* begin=s->getInit();
         stack <State<T>*> open;
-        s->getInit()->setCostSum(1);
-        State<T>* WE=s->getInit();
-        open.push(s->getInit());
-        s->getInit()->setVisited(true);
+        begin->setCostSum(1);
+        open.push(begin);
+        begin->setVisited(true);
         while (!open.empty()){
             counter++;
             State<T> * n;
@@ -35,11 +35,11 @@ public:
             open.pop();
             n->setVisited(true);
             if (n->getState()==s->getGoal()->getState()){
-                return getSolution(n,s->getInit());
+                return getSolution(n,begin);
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
-                if (!s1->isVisited()&&!(s1->getState()==s->getInit()->getState())){
+                if (!s1->isVisited()&&!(s1->getState()==begin->getState())){
                     s1->setCostSum(1+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);

@@ -42,7 +42,7 @@ public:
             }
             list<State<T> *> l = s->getNeighbours(n);
             for (State<T> *s1:l) {
-                if (!s1->isVisited()) {
+                if (!s1->isVisited()&&!has(open,s1)) {
                     s1->setCostSum(1 + n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
@@ -96,6 +96,16 @@ public:
             }
         }
         return solution1;
+    }
+    bool has(queue<State<T> *> q, State<T> *s) {
+        while (!q.empty()){
+            State<T> *temp=q.front();
+            if (temp->getState()==s->getState()){
+                return true;
+            }
+            q.pop();
+        }
+        return false;
     }
 
 
