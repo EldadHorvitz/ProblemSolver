@@ -104,3 +104,7 @@ void MyParallelServer::stop() {
     m_connected = false;
 }
 
+
+MyParallelServer::~MyParallelServer() {
+
+}

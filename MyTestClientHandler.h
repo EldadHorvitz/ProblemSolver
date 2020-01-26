@@ -12,6 +12,8 @@ static std::mutex m2;
 class MyTestClientHandler : public ClientHandler {
 public:
     void handleClient(int socket) override;
+
+    virtual ~MyTestClientHandler();
 };
 
 

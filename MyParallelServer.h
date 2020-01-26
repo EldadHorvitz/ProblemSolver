@@ -17,6 +17,8 @@ public:
    // ~MyParallelServer() {}
 
     void stop() override;
+
+    virtual ~MyParallelServer();
 };
 
 

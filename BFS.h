@@ -24,8 +24,8 @@ public:
     BFS() : counter(0) {}
 
     S search(Searchable<T> *s) {
-        State<T>* begin=s->getInit();
-        State<T> erd=State<T>((Point) begin->getState(),begin->getCost());
+        State<T> *begin = s->getInit();
+        State<T> erd = State<T>((Point) begin->getState(), begin->getCost());
 
         queue < State<T> * > open;
         begin->setCostSum(1);
@@ -38,7 +38,10 @@ public:
             open.pop();
             n->setVisited(true);
             if (n->getState() == s->getGoal()->getState()) {
-                return getSolution(n, begin);
+                string stringSol = getSolution(n, begin);
+                begin = nullptr;
+                cout << "num of nodes is:" << this->counter << endl;
+                return stringSol;
             }
             list<State<T> *> l = s->getNeighbours(n);
             for (State<T> *s1:l) {
@@ -62,13 +65,13 @@ public:
         vector<State<T> > v;
         State<T> temp = *goal;
         int count = 0;
-        Point tempp=(Point) temp.getState();
-        Point originp=(Point)  origin->getState();
+        Point tempp = (Point) temp.getState();
+        Point originp = (Point) origin->getState();
         while ((tempp.getX() != originp.getX() || (tempp.getY() != originp.getY()))) {
             v.push_back(temp);
             temp = *(temp.getDad());
             count++;
-            tempp=(Point) temp.getState();
+            tempp = (Point) temp.getState();
         }
         v.push_back(temp);
         int i;
@@ -95,11 +98,19 @@ public:
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
             }
         }
+
         return solution1;
     }
+
+    virtual ~BFS();
 
 
 };
 
+
+template<class T, class S>
+BFS<T, S>::~BFS() {
+
+}
 
 #endif //EX4_BFS_H

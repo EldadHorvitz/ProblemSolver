@@ -34,7 +34,7 @@ void MyTestClientHandler::handleClient(int socket) {
     string token;
     string s = "";
 
-    m2.lock();
+    // m2.lock();
     while (1) {
         bzero(buffer, 100000);
         read(socket, buffer, 100000);
@@ -70,7 +70,7 @@ void MyTestClientHandler::handleClient(int socket) {
         // token = "";
     }
 
-    m2.unlock();
+    //m2.unlock();
 /*
 CasheManager<Problem*,string>* cm;
 
@@ -93,3 +93,6 @@ CasheManager<Problem*,string>* cm;
 }
 
 
+MyTestClientHandler::~MyTestClientHandler() {
+
+}
