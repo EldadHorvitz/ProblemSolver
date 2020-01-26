@@ -15,11 +15,15 @@ using namespace std;
 #include <string>
 template<class T,class S>
 class BstFS: public Searcher<T,S> {
+    class Comparer {
+    public:
+        bool operator()(State<Point> *s1,State<Point>* s2){
+            return (s1->getCostSum()>s2->getCostSum());
+        }
+    };
 
 private:
-    bool operator()(State<Point> *s1,State<Point>* s2){
-        return (s1->getCostSum()>s2->getCostSum());
-    }
+
     int counter;
 public:
     virtual ~BstFS() {
