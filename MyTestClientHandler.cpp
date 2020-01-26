@@ -28,7 +28,7 @@ void MyTestClientHandler::handleClient(int socket) {
     char buffer[1024] = {0};
     int numOfComma = 0;
     int firstTime = 1;
-    string delimiter = "\n";
+    string delimiter = "\r\n";
     string token;
     string s = "";
 
@@ -39,10 +39,11 @@ void MyTestClientHandler::handleClient(int socket) {
         size_t pos = 0;
         while ((pos = s.find('\n')) != string::npos) {
             token = s.substr(0, pos);
-            if (token == "end\r\n" || token == "end\n" || token == "end\r") {
+            if (token == "end\r\n" || token == "end\n" || token == "end\r"|| token == "end") {
                 break;
             }
             numOfComma = std::count(token.begin(), token.end(), ',');
+
             if (numOfComma > 1) {
                 problem->insertLine(token);
             } else if (numOfComma == 1) {
