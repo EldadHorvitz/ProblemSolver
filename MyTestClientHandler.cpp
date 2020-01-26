@@ -32,14 +32,15 @@ void MyTestClientHandler::handleClient(int socket) {
     string token;
     string s = "";
 
-
+    m2.lock();
     while (1) {
         read(socket, buffer, 1024);
         s += buffer;
+        s.erase(std::remove(s.begin(), s.end(), '\r'), s.end());
         size_t pos = 0;
         while ((pos = s.find(delimiter)) != string::npos) {
             token = s.substr(0, pos);
-            if (token == "end\r\n" || token == "end\n" || token == "end\r" || token=="end") {
+            if (token == "end\r\n" || token == "end\n" || token == "end\r" || token == "end") {
                 break;
             }
             numOfComma = std::count(token.begin(), token.end(), ',');
@@ -56,13 +57,13 @@ void MyTestClientHandler::handleClient(int socket) {
             }
             s.erase(0, pos + delimiter.length());
         }
-        if (token == "end\r\n" || token == "end\n" || token == "end\r"|| token=="end") {
+        if (token == "end\r\n" || token == "end\n" || token == "end\r" || token == "end") {
             break;
         }
         // token = "";
     }
 
-
+    m2.unlock();
 /*
 CasheManager<Problem*,string>* cm;
 

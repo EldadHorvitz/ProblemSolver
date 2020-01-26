@@ -9,12 +9,13 @@
 #include "Problem.h"
 
 Problem::Problem() {
-    this->name=probCounter;
+    this->name = probCounter;
     probCounter++;
 }
-string Problem::toString(){
+
+string Problem::toString() {
     stringstream ss;
-    int x=this->name;
+    int x = this->name;
     ss << x;
     string str = ss.str();
     return str;
@@ -30,8 +31,10 @@ void Problem::insertLine(string str) {
         smallVector.push_back(d);
         str.erase(0, pos + delimiter.length());
     }
-    double d = (stod(str.substr(0, pos)));
-    smallVector.push_back(d);
+    if (str.substr(0, pos) != ",") {
+        double d = (stod(str.substr(0, pos)));
+        smallVector.push_back(d);
+    }
     this->matrix.push_back(smallVector);
 }
 
@@ -123,7 +126,6 @@ list<State<Point> *> Problem::getNeighbours(State<Point> *p) {
     }
     return listN;
 }
-
 
 
 State<Point> *Problem::locateState(Point p) {
