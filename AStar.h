@@ -82,23 +82,24 @@ public:
         State<T> *a = q.front();
         q.pop();
         State<T> *min = a;
+        temp.push(a);
         while (!q.empty()) {
+            a = q.front();
+            q.pop();
             if ((min->getCostSum() + min->getUCostSum()) < (a->getCostSum() + a->getUCostSum())) {
                 min = a;
             }
             temp.push(a);
-            a = q.front();
-            q.pop();
         }
         a = temp.front();
         temp.pop();
         q.push(min);
         while (!temp.empty()) {
-            if (!(a == min)) {
-                temp.push(a);
+            if (!(a->getState() == min->getState())) {
+                q.push(a);
             }
-            a = q.front();
-            q.pop();
+            a = temp.front();
+            temp.pop();
         }
         return q;
     }

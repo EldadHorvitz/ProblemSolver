@@ -48,7 +48,7 @@ public:
         return costSum;
     }
 
-    T getState() const {
+    T getState()  {
         return state;
     }
 

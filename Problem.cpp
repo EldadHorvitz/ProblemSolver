@@ -26,6 +26,7 @@ void Problem::insertLine(string str) {
     std::string delimiter = ",";
     size_t pos = 0;
     vector<double> smallVector;
+    str.erase( std::remove(str.begin(), str.end(), '\r'), str.end() );
     while ((pos = str.find(delimiter)) != std::string::npos) {
         double d = (stod(str.substr(0, pos)));
         smallVector.push_back(d);
