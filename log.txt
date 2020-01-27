@@ -1,0 +1,937 @@
+commit 89903dd7c9246094f60b988c39dc7e53ad34120b
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 27 17:27:34 2020 +0200
+
+    everything working without cm
+
+commit dfa298389f89ca272e4fb7176ee05ea45ac05d6a
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 27 13:54:41 2020 +0200
+
+    added Problem.h and Point.h
+
+commit a873df07f9cd824805e587b09195ae8e81484f9e
+Merge: 3050e23 f0980f8
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 27 13:46:00 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	CasheManager.h
+    	MyParallelServer.cpp
+    	MyTestClientHandler.cpp
+    	MyTestClientHandler.h
+    	OA.h
+    	main.cpp
+
+commit 3050e2317b50ab255dc93d25f41875a9cfef136e
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 27 13:45:41 2020 +0200
+
+    added Problem.h and Point.h
+
+commit f0980f81f434bc7e2db87f52694166adfdc931bc
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 27 04:09:42 2020 +0200
+
+    everything working without cm
+
+commit c9184996836a8029f1ecc95a3e2c1c59d59ba9e6
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 27 02:18:52 2020 +0200
+
+    everything working
+
+commit 51a6e3625cddefe359f04178b52d1073e8c02cc4
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 27 00:18:42 2020 +0200
+
+    bfs&dfs updated
+
+commit 1dab262b0a7605d150238eb6bad8aef1ef46bc7e
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 22:59:22 2020 +0200
+
+    bfs&dfs updated
+
+commit 9007ce0023a6447bec7e1bfedc71feaad59f8bdd
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 20:20:30 2020 +0200
+
+    bfs&dfs updated
+
+commit a7dcfd216e96c4f17f5eff0ddac1d3a1cd9dae04
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 19:07:36 2020 +0200
+
+    bfs&dfs updated
+
+commit e1e9d08aab8848cabe506fe880dbdc3826cf6864
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 19:05:07 2020 +0200
+
+    bfs&dfs updated
+
+commit 1bfdeb758265189dd60d4ed040d7d9be7026eff4
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 19:03:07 2020 +0200
+
+    bfs&dfs updated
+
+commit a72b5d901a2ade5bcb618973418fde252178b5cb
+Merge: 298bd8b bb510f7
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 17:29:30 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	BFS.h
+
+commit 298bd8b3f87e1c973862f0ac3e6506e0cb3a4757
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 17:29:09 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 35c66e31d2069def9bd440a40cced7441d024fc9
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 17:18:39 2020 +0200
+
+    added Problem.h and Point.h
+
+commit bb510f7ae09c133b346a0a6518422b91498eac61
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 17:17:59 2020 +0200
+
+    bfs&dfs updated
+
+commit d50d2d0f9eeba088e08917dbaa8101532ab15a25
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 17:11:54 2020 +0200
+
+    all searchers are working
+
+commit 5d7da4f6543d850c940692a20de77645604ed522
+Merge: 8298af7 13072a9
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 16:44:40 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	BFS.h
+    	OA.h
+
+commit 8298af7ec1120fb7a2f95e07dd46ca69f0b02552
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 16:43:05 2020 +0200
+
+    all searchers are working
+
+commit 13072a9943a7af0cd6f3fe89937422fc64824671
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 16:41:30 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 6eac33a11ac0479735efdcc2c7b99d225cb91cba
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 13:37:54 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 4c25b2a290b8726684a6eae7bb0b82bf37797bf3
+Merge: a16bede e90fc9d
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 13:35:42 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	OA.h
+
+commit a16bede2854ef146928e5be7962603dbe52ac0c0
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 13:35:04 2020 +0200
+
+    added Problem.h and Point.h
+
+commit e90fc9d267afd37799286df9872f5b28b748f01a
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 12:07:33 2020 +0200
+
+    all searchers are working
+
+commit 0bb2a7d6c8aa1ca06caa9aa18a81b8227371423f
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 12:04:35 2020 +0200
+
+    all searchers are working
+
+commit fc9f066207d476c74bde75dec305e80d3b74f304
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 11:54:15 2020 +0200
+
+    all searchers are working
+
+commit baf071a96e47c8d9d3dc172bc055e167e6d5e311
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:51:56 2020 +0200
+
+    added Problem.h and Point.h
+
+commit b03710185391e3dba588a32540a5883d651c4015
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:46:48 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 19b57322f96debe018c5c623b47f46ce5f549fc9
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:28:32 2020 +0200
+
+    added Problem.h and Point.h
+
+commit aa54cd5b0b1654213dce28e39fd1a613441b2949
+Merge: 189d6a4 ffd93fa
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:26:59 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 189d6a48169895456f7beac78e436574adae7240
+Merge: 10a805e 97d73f3
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:17:17 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 10a805e77ff213f3b9d5a571fc6acd499d652237
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 11:13:34 2020 +0200
+
+    added Problem.h and Point.h
+
+commit ffd93fa3113fdcbcf6bff203e111b91676f5f515
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 11:10:30 2020 +0200
+
+    priority working
+
+commit 97d73f3761ec2376aea2969eb42d30adea86faf4
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 11:00:48 2020 +0200
+
+    priority working
+
+commit 8cfd24dc4b219ccf90d5a3254029e5a1fa08fbcd
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 10:44:06 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 0decdd982eaa4c5cbe3472c42827e6f9a1f01316
+Merge: 90645fc 8cfd24d
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 10:31:09 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	MyTestClientHandler.cpp
+
+commit 90645fc18dda1c8dd57aa2598dbffba1e9d900cc
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 10:30:27 2020 +0200
+
+    compile
+
+commit 96a378c84104781eecca2be37dfc8a4411837bf7
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 09:52:42 2020 +0200
+
+    compiled
+
+commit d2603f252e72bc372c448a046f78e90b9d416d37
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 09:51:34 2020 +0200
+
+    compiled
+
+commit c929a4c6e436bd01d41b6d6032f1a77676602f02
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 09:50:01 2020 +0200
+
+    update to string of problems
+
+commit 4a158582eae8cad493714094a524e6c0b7ffb433
+Merge: 73e3bbd f57843b
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 09:44:09 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+
+commit f57843ba6135aa6b175bcca29c2849dded33dcdb
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sun Jan 26 01:48:35 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 73e3bbdeff839ab2f2f2eeb24eb191cd23ccc333
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sun Jan 26 00:23:26 2020 +0200
+
+    update to string of problems
+
+commit fc7f4cc944f8f80f8d6eb3ad64343225a7599906
+Merge: edbf108 6265435
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 23:33:20 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 62654358656f1ed3df528a5ff601deb12be66b1b
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 23:30:37 2020 +0200
+
+    compiled
+
+commit edbf10858ce78839dcff277924f0dfe197ad2b57
+Merge: e2e2be0 d254bed
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 23:29:25 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	AStar.h
+
+commit e2e2be061295e01d224dad89ff2a3a2ad2ad1bc5
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 23:29:12 2020 +0200
+
+    added Problem.h and Point.h
+
+commit d254bed89fe72a77bd9f5e1c2917c4a8e10774af
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 23:28:18 2020 +0200
+
+    compiled
+
+commit 9971585097214fa19528ceef0850e0d90086de87
+Merge: 2be2fb3 04ae602
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 23:12:37 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	AStar.h
+
+commit 2be2fb37a6551c51a6c907f3b92d9809e4870a28
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 23:12:20 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 04ae602d6b9e95b25d3d7ad9bfbefd881e20c921
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 23:11:03 2020 +0200
+
+    only iterator is remained
+
+commit b8a85c3609d22eddea96588025b6add08e446eab
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 22:59:13 2020 +0200
+
+    update pointers
+
+commit 859364e1c5faaad6db9f7c4225fe0603a7dd0aa3
+Merge: 88b68fe cb04c36
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:34:21 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	AStar.h
+
+commit 88b68fe84e33ac7d66990b1c34ce210e62e2d77f
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:33:22 2020 +0200
+
+    added Problem.h and Point.h
+
+commit cb04c3670c70314c5875ebd2cb88b8715ba86fa0
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 22:30:03 2020 +0200
+
+    update pointers
+
+commit 2495954c0e5e1e271cd7785d8b175ffe0b0eef5a
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:17:10 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 929c833db8318b5e85d049e3837a8c440e012e10
+Merge: e200458 c49c184
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:12:26 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit c49c184f154ad5920de7be7a082239149c6d8918
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 22:11:51 2020 +0200
+
+    update pointers
+
+commit e2004580d8b08be84b9355c8b651cfa11b5d1197
+Merge: fcaea45 ee21e8b
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:08:56 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit ee21e8bf41ba3cdd4d70a778002c1377a9cf83bd
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 22:06:28 2020 +0200
+
+    update pointers
+
+commit fcaea456da6f7f737edd090723c89cf677fe5c83
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 22:04:58 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 1c28119b519aeeb8dcf3e7e8fe0725aa341da18d
+Merge: ca24294 8d8cdb0
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 21:55:09 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	CMakeLists.txt
+
+commit 8d8cdb0b39fb30aa659b8aa76375c67de9afbb24
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 21:54:50 2020 +0200
+
+    template cpp file deleted
+
+commit 4b038a35d5c2f9975755bb3bfd78838d3c361795
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 21:54:25 2020 +0200
+
+    template cpp file deleted
+
+commit 3f3893dfc7c6a3e0ce3b72aa418ff63c4e4e7e20
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 21:53:19 2020 +0200
+
+    template cpp file deleted
+
+commit ca24294f63265a22120735eb80a8ff53aa848a08
+Merge: d4c8ea8 e6c616a
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 21:52:23 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	Problem.cpp
+
+commit d4c8ea8b56caa11a585e5315266d52a1230ec599
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 21:51:55 2020 +0200
+
+    added Problem.h and Point.h
+
+commit e6c616af1ead7f9ecc03fe4ea862bf77c4e79af1
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 21:51:36 2020 +0200
+
+    template cpp file deleted
+
+commit 9704e8f3c17f3518a1763129133e47b237bf8add
+Merge: 3288707 c395ea6
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 21:43:54 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	CMakeLists.txt
+    	Cashe.cpp
+    	CasheManager.h
+    	MyTestClientHandler.cpp
+    	Problem.cpp
+
+commit 3288707070aabd6560ed57760de21f2f18683668
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Sat Jan 25 21:42:01 2020 +0200
+
+    added Problem.h and Point.h
+
+commit c395ea60493aa873767f07544faa7b493a8e9f16
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Sat Jan 25 21:34:03 2020 +0200
+
+    template cpp file deleted
+
+commit 92110c631bebeebd345037acd48575ced8f6001d
+Merge: e36c32b 3ca2079
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 13:04:40 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	BFS.cpp
+    	MyTestClientHandler.cpp
+    	OA.h
+
+commit e36c32b53a1fd2a5512927798bb77ffc5f83b7f8
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 13:04:09 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 3ca207993b979b3cd9c22337f8cd25e774864d8c
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 12:09:35 2020 +0200
+
+    almost done - corrections in cashManager
+
+commit 84e6681ed4c89198ea9de7589becfc5b84c87530
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 11:29:07 2020 +0200
+
+    almost done - corrections in cashManager
+
+commit 9ab975825824a32eaca3b6e0999719a14bedcb5a
+Merge: a59dc45 114ecaf
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:53:06 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit a59dc45edc3e9e8c17c033be3c464739e4d8aff4
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:52:30 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 114ecaf6ae0aaf90928f284c2c643d4784acaaaf
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 10:51:22 2020 +0200
+
+    solution added with corrections
+
+commit 01e3d0244263ad056078478012bd6c002065592f
+Merge: 1a5b88a a7e85f9
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:40:34 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 1a5b88a2c13aa10e5e9803af713c5011303b62e8
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:40:05 2020 +0200
+
+    added Problem.h and Point.h
+
+commit a7e85f907ecfe10a033f734cb7509f3f1ffe5b36
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 10:39:21 2020 +0200
+
+    solution added
+
+commit 72e633f709b1593c6b287954fcc0f1647b255426
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 10:10:07 2020 +0200
+
+    solution added
+
+commit 632cb8090147843beb057ad2de918aed2f554dcd
+Merge: 9389c2f 025cfdc
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:06:24 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	State.h
+
+commit 9389c2f32d76e3b39ae1c04e46d541e043c6fce6
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 10:05:50 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 8d120d96ac78eda921e87dfefe171c7162063b7a
+Merge: 025cfdc f57b1ba
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 09:51:55 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	State.h
+
+commit f57b1ba47683e91fe5cd867527f91ef4634d18f0
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 02:30:17 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 104f58080f787bf43ffa7e2ed80e1642900d8382
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 02:27:06 2020 +0200
+
+    added Problem.h and Point.h
+
+commit d419f72d97eaae4295537d848875e8dab8c8d939
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 02:24:44 2020 +0200
+
+    added Problem.h and Point.h
+
+commit bb61f02d30163fa332120384fb12e98d2ec40e11
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 02:22:27 2020 +0200
+
+    added Problem.h and Point.h
+
+commit fc44d4c0a28423e98284931955e9b5aba0d42d62
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Fri Jan 24 02:19:06 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 025cfdcc4ca231e93ff7098eeb8ee7fbd896ff34
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 01:54:20 2020 +0200
+
+    OA added
+
+commit 6b9e57fe8904772ecb0d01213dbc0596ad7a18a3
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Fri Jan 24 01:43:30 2020 +0200
+
+    AStar added
+
+commit 2b503239f10c3f95ba91cb8b828e502c638da93c
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 23:32:38 2020 +0200
+
+    added Problem.h and Point.h
+
+commit d8cfc2e99b9c99c1e034881dec81e3c8cc6f041b
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 22:14:05 2020 +0200
+
+    AStar added
+
+commit 12c29601e1d70c917d61c813f3c7f063f7f6b26b
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 22:13:37 2020 +0200
+
+    bfs and dfs added
+
+commit af27a6938ce1f752d31e7b3215bbe91b1432f079
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 21:54:15 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 261f3a08d4e8dbd131ab14c31d89374c9541eb30
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 21:39:31 2020 +0200
+
+    added Problem.h and Point.h
+
+commit e8b2cdbca540367318f4f04798e17b76b18343f4
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 21:08:48 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 2e1b44d813dcd6ae0e8ef7c54aad5f7210184bac
+Merge: 2927ca0 c39bb83
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 20:53:02 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 2927ca0ba02b8bb416ca39f0aa4ea37c23d6fbd7
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 20:52:41 2020 +0200
+
+    added Problem.h and Point.h
+
+commit c39bb83d7cca0011a559c69c394416bdb630a70c
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 20:50:18 2020 +0200
+
+    bfs and dfs added
+
+commit 8032651eed373425e356f1e0c58c725f4a673f3a
+Merge: a665694 73dc132
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 20:48:13 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+
+commit 73dc1321b333a0f47e142fd8990a2be75a24d9cf
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 20:39:38 2020 +0200
+
+    bfs and dfs added
+
+commit a665694d21acff4d7192790adc17d806c7bd00c1
+Merge: 2688b83 a14fbfa
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 19:46:19 2020 +0200
+
+    Merge branch 'Eldad' of https://github.com/NizanMandelblit/ex4
+    
+     Conflicts:
+    	State.h
+
+commit 2688b837e0bcad5c5114820a88be2a61a60c289d
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 19:45:19 2020 +0200
+
+    added Problem.h and Point.h
+
+commit a14fbfa39c300eca46ec70f4695eadba2aedd675
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 19:37:20 2020 +0200
+
+    bfs and dfs added
+
+commit 818c964eb0fc65b2e77fc8bcb5287ab67054a3d4
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 18:35:12 2020 +0200
+
+    bstfs added
+
+commit 1a9745fa63115ea2cbb36929141bacaba12d72f2
+Merge: c57389d a463664
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 18:02:36 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+
+commit a46366443c90492ebcdb5853782a30db3ddc46ad
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 18:00:24 2020 +0200
+
+    added Problem.h and Point.h
+
+commit f0ece07f155c7be97d3e3425aadbafa71d24c922
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 17:50:22 2020 +0200
+
+    added Problem.h and Point.h
+
+commit c57389d2f50b75882939d48db793bac3b192603d
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 17:18:36 2020 +0200
+
+    bstfs added
+
+commit 7f135fab5c266588ada041fd06b6aaa0915fbfeb
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 16:58:15 2020 +0200
+
+    added Problem.h and Point.h
+
+commit a7da90b382e602e83b738968e9dfd403a8c822e1
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 16:50:07 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 4f5c0b99eb1fb8eac762d31f7270bf9f25b9e33e
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 16:39:09 2020 +0200
+
+    added Problem.h and Point.h
+
+commit ff1d5f48e31908ecd957e727738d535a4fc47149
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 16:34:50 2020 +0200
+
+    added Problem.h and Point.h
+
+commit 8291a31e33112595800fa5d8454310d6b79ecdb9
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 16:13:21 2020 +0200
+
+    added Problem.h and Point.h
+
+commit c10c0cf91d4a47e77dfcd5583f9c4d7533d29023
+Merge: 74f95be 8291a31
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 16:12:12 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+
+commit 74f95beca5fb89738187d35122a446f3d22a7519
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 16:11:46 2020 +0200
+
+    searches added
+
+commit 8eaed79f1350095a5d6ef454f77e647b0fefb26d
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 15:49:58 2020 +0200
+
+    state added
+
+commit c7811334ea89c0bcc34321370b46fe6e66e32879
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 12:19:31 2020 +0200
+
+    state added
+
+commit b13f927580b458299f36b1b575a9b0edc625044f
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 12:14:27 2020 +0200
+
+    none
+
+commit ab10722921f6084ab27455bdb3c98d16b049524c
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 11:59:25 2020 +0200
+
+    none
+
+commit 348394ded0196908c3400d7c909c8a8601da8414
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 11:54:48 2020 +0200
+
+    none
+
+commit b54884e187f0ca60845c2e16b8443999eee78552
+Merge: 612a70a 65edcec
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Thu Jan 23 11:47:23 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+
+commit 65edcecad6cf424c0a4a9f1f1e52cdff1233dd04
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Thu Jan 23 00:32:22 2020 +0200
+
+    added Matrix.cpp
+
+commit 612a70ad2457cef0551e584b33600483038ddf0c
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Wed Jan 22 23:37:12 2020 +0200
+
+    none
+
+commit ad3040be52623f6b95dd40165754b8fc9612f7b3
+Merge: b2c6163 0618c59
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Wed Jan 22 23:35:59 2020 +0200
+
+    Merge branch 'Nizan' of https://github.com/NizanMandelblit/ex4
+
+commit 0618c594687e9af1bc3bd4f5e098f3b1b919351f
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Wed Jan 22 16:40:57 2020 +0200
+
+    added Matrix.cpp
+
+commit ae06261ef745a31adfe3ee28da34ff37f0e766ee
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 21 22:31:51 2020 +0200
+
+    added Matrix.cpp
+
+commit 07abab41e54e92feb2c8fbd4dc4dfcbae6a583b5
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 21 21:17:31 2020 +0200
+
+    MyTestClientHandler.cpp changes
+
+commit af48f2b6a64a5de3093b5c0e243c5e0b4db9f95d
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 21 17:57:30 2020 +0200
+
+    completed server things
+
+commit e1d9e362e02c738aef6933fc923ea44d6fb7637e
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 21 17:25:52 2020 +0200
+
+    completed server things
+
+commit 9887996e58b78d8370856f5cf3bb22627f9ec3dd
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 14 00:50:11 2020 +0200
+
+    changed port number
+
+commit 9dbc6c2183708c88a233e266b8d28624c253a6c5
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 14 00:20:47 2020 +0200
+
+    removed README.md
+
+commit b2c6163f848c3ae428e2e107ddec787265f5d691
+Author: Nizan Mandelblit <47861710+NizanMandelblit@users.noreply.github.com>
+Date:   Tue Jan 14 00:20:20 2020 +0200
+
+    Create README.md
+
+commit 03beb7d4d1c434c4f3273810a2555757eb5ee0b8
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 14 00:18:58 2020 +0200
+
+    added README.md
+
+commit 55f08f9f6319185a774a3ad11f3ce364a443b055
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Tue Jan 14 00:11:58 2020 +0200
+
+    server class
+
+commit 9a92f31fc4dd871908035eee03a344e3c10bace6
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 13 23:54:13 2020 +0200
+
+    server class
+
+commit a5163c1b4c0021939b2f11023e26e1d597112585
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 13 21:23:41 2020 +0200
+
+    creating classes
+
+commit ca1f84db1fb7e205b69f8bf81b18c21f6c3b6b06
+Author: EldadHorvitz <eldad373@gmail.com>
+Date:   Mon Jan 13 20:19:19 2020 +0200
+
+    check
+
+commit a7184623140aa69513b86ff7c1bea8d39e3e1779
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 13 19:50:17 2020 +0200
+
+    created project
+
+commit 5e628ca4db975df36dc405c5c32b89efb4a58c19
+Author: NizanMandelblit <nizanm91@gmail.com>
+Date:   Mon Jan 13 19:48:05 2020 +0200
+
+    created project

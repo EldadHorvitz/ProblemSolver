@@ -4,7 +4,7 @@
 
 #include "Point.h"
 
-Point::Point(int x, int y) : x(x), y(y) {}
+Point::Point(int x1, int y1) : x(x1), y(y1) {}
 
 int Point::getX() const {
     return x;
@@ -17,6 +17,7 @@ int Point::getY() const {
 bool Point::equals(Point p1) {
     return (p1.getX() == this->x && p1.getY() == this->getY());
 }
+
 bool Point::operator==(Point p1) {
     return (p1.getX() == this->x && p1.getY() == this->getY());
 }

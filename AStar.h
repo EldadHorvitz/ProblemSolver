@@ -19,10 +19,11 @@ template<class T, class S>
 class AStar : public Searcher<T, S> {
     class Cmp {
     public:
-        bool operator()(State<T>* left, State<T>* right) {
+        bool operator()(State<T> *left, State<T> *right) {
             return (left->getCostSum() + left->getUCostSum() > right->getCostSum() + right->getUCostSum());
         }
     };
+
 private:
     int counter;
 public:
@@ -30,13 +31,13 @@ public:
     AStar() : counter(0) {}
 
     S search(Searchable<T> *s) {
-        priority_queue <State<T>*,vector<State<T>*>,Cmp> open;
+        priority_queue<State<T> *, vector<State<T> *>, Cmp> open;
         s->getInit()->setCostSum(s->getInit()->getCost());
         update(s->getInit(), s);
         open.push(s->getInit());
         queue<State<T> *> close;
         while (!open.empty()) {
-            State<T>* n = open.top();
+            State<T> *n = open.top();
             counter++;
             open.pop();
             update(n, s);
@@ -62,16 +63,17 @@ public:
         return "error";
     }
 
-    bool has(priority_queue <State<T>*,vector<State<T>*>,Cmp> q, State<T> *s) {
-        while (!q.empty()){
-            State<T> *temp=q.top();
-            if (temp->getState()==s->getState()){
+    bool has(priority_queue<State<T> *, vector<State<T> *>, Cmp> q, State<T> *s) {
+        while (!q.empty()) {
+            State<T> *temp = q.top();
+            if (temp->getState() == s->getState()) {
                 return true;
             }
             q.pop();
         }
         return false;
     }
+
     bool has2(queue<State<T> *> q, State<T> *s) {
         while (!q.empty()) {
             State<T> *temp = q.front();
@@ -89,7 +91,7 @@ public:
 
 
     queue<State<T> *> priority(queue<State<T> *> q) {
-        if (q.empty()){
+        if (q.empty()) {
             return q;
         }
         queue<State<T> *> temp;
@@ -143,12 +145,12 @@ public:
             temp = *(temp.getDad());
             count++;
         }
-        this->counter=count;
-        int a =this->counter;
+        this->counter = count;
+        int a = this->counter;
         stringstream ss;
         ss << a;
         string str = ss.str();
-       // solution1+=str+"\n";
+        // solution1+=str+"\n";
 
         v.push_back(temp);
         int i;

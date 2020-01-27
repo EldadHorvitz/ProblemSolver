@@ -11,7 +11,8 @@
 #include "State.h"
 
 using namespace std;
-static int probCounter=0;
+__attribute__((unused)) static int probCounter = 0;
+
 class Problem : public Searchable<Point> {
 
 public:
@@ -21,31 +22,31 @@ public:
     void insertLine(string str);
 
     string toString();
+
     void insertEndPoint(string str);
 
     void insertStartPoint(string str);
 
     void insertToState();
 
-    State<Point > *getInit() override;
+    State<Point> *getInit() override;
 
-    State<Point > *getGoal() override;
+    State<Point> *getGoal() override;
 
 
-    State<Point > *locateState(Point p);
+    State<Point> *locateState(Point p);
 
     list<State<Point> *> getNeighbours(State<Point> *s) override;
 
 
-
 private:
     int name;
-    State<Point > *start;
-    State<Point > *end;
+    State<Point> *start;
+    State<Point> *end;
     vector<vector<double >> matrix;
-    int rowSize = this->matrix.size();;
-    int colSize;
-    list<State<Point > *> matrixStates;
+    unsigned int rowSize = this->matrix.size();
+    unsigned int colSize;
+    list<State<Point> *> matrixStates;
 
 };
 

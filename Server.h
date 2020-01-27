@@ -22,9 +22,13 @@ namespace server_side {
 
         virtual void stop() = 0;
 
+        virtual ~Server() {
+
+        }
+
     };
 
-    static bool isRun = false;
+    __attribute__((unused))  static bool isRun = false;
 
 }
 

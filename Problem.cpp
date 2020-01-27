@@ -43,15 +43,15 @@ void Problem::insertLine(string str) {
 
 void Problem::insertToState() {
     this->rowSize = this->matrix.size();
-    int maxColSize = 0;
-    int i = 0;
+    unsigned int maxColSize = 0;
+    unsigned int i = 0;
     for (i = 0; i < this->matrix.size(); i++) {
         if (this->matrix[i].size() > maxColSize) {
             maxColSize = this->matrix[i].size();
         }
     }
     this->colSize = maxColSize;
-    int j;
+    unsigned int j;
     for (i = 0; i < this->rowSize; i++) {
         for (j = 0; j < this->colSize; j++) {
             Point p = Point(i, j);
@@ -73,9 +73,7 @@ void Problem::insertStartPoint(string str) {
     }
     int p2 = (stoi(str.substr(0, pos)));
     Point p = Point(p1, p2);
-    double value = this->matrix[p1][p2];
-
-    State<Point> *o =this->locateState(p);
+    State<Point> *o = this->locateState(p);
     this->start = o;
 }
 
@@ -89,11 +87,9 @@ void Problem::insertEndPoint(string str) {
     }
     int p2 = (stoi(str.substr(0, pos)));
     Point p = Point(p1, p2);
-    double value = this->matrix[p1][p2];
-    State<Point> *o =this->locateState(p);
+    State<Point> *o = this->locateState(p);
     this->end = o;
 }
-
 
 State<Point> *Problem::getInit() {
     return this->start;
@@ -106,25 +102,25 @@ State<Point> *Problem::getGoal() {
 
 list<State<Point> *> Problem::getNeighbours(State<Point> *p) {
     list<State<Point> *> listN;
-    int x1 = p->getState().getX();
-    int y1 = p->getState().getY();
+    unsigned int x1 = p->getState().getX();
+    unsigned int y1 = p->getState().getY();
     //x+1,y
-    if (!(x1 + 1 >= this->rowSize) && this->matrix[x1+1][y1] != -1) {
-        State<Point> *g = this->locateState(Point(x1+1, y1));
+    if (!(x1 + 1 >= this->rowSize) && this->matrix[x1 + 1][y1] != -1) {
+        State<Point> *g = this->locateState(Point(x1 + 1, y1));
         listN.push_back(g);
     }
     //x,y+1
-    if (!(y1 + 1 >= this->colSize) && this->matrix[x1][y1+1] != -1) {
+    if (!(y1 + 1 >= this->colSize) && this->matrix[x1][y1 + 1] != -1) {
         State<Point> *g = this->locateState(Point(x1, y1 + 1));
         listN.push_back(g);
     }
     //x-1,y
-    if (!(x1 - 1 < 0) && this->matrix[x1-1][y1] != -1) {
+    if ((x1 != 0) && this->matrix[x1 - 1][y1] != -1) {
         State<Point> *g = this->locateState(Point(x1 - 1, y1));
         listN.push_back(g);
     }
     //x,y-1
-    if (!(y1 - 1 < 0) && this->matrix[x1][y1-1] != -1) {
+    if ((y1 != 0) && this->matrix[x1][y1 - 1] != -1) {
         State<Point> *g = this->locateState(Point(x1, y1 - 1));
         listN.push_back(g);
     }
@@ -138,5 +134,6 @@ State<Point> *Problem::locateState(Point p) {
             return c;
         }
     }
+    return nullptr;
 }
 

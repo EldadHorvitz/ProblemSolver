@@ -12,7 +12,7 @@ private:
     double cost;
     double costSum;
     double uCostSum;
-    State<T>* dad;
+    State<T> *dad;
     bool visited;
 public:
     virtual ~State() {
@@ -40,7 +40,7 @@ public:
     }
 
 
-    void setDad(State<T>* dad1) {
+    void setDad(State<T> *dad1) {
         State::dad = dad1;
     }
 
@@ -48,7 +48,7 @@ public:
         return costSum;
     }
 
-    T getState()  {
+    T getState() {
         return state;
     }
 
@@ -62,7 +62,7 @@ public:
 
 
     bool equals(State<T> *s) {
-        state->equals(s->getState());
+        return state->equals(s->getState());
     }
 
     // template<class T>
@@ -75,7 +75,7 @@ public:
     }
 
 
-    State(T state1, double cost1) : state(state1),cost(cost1),costSum(0),uCostSum(0),dad(nullptr),visited(false) {}
+    State(T state1, double cost1) : state(state1), cost(cost1), costSum(0), uCostSum(0), dad(nullptr), visited(false) {}
 
 };
 

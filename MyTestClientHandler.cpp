@@ -20,10 +20,6 @@ MyTestClientHandler :: MyTestClientHandler() {
    // this->cm = cm;
 }
 
-void readFromClient(int socket) {
-
-
-}
 
 
 void MyTestClientHandler::handleClient(int socket) {

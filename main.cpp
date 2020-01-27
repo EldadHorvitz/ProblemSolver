@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main(int args, char *argv[]) {
+int main(__attribute__((unused)) int args, char *argv[]) {
 
    // CasheManager* cm =new CasheManager();
     ClientHandler *c = new MyTestClientHandler();

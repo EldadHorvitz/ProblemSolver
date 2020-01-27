@@ -28,18 +28,18 @@ using namespace std;
 #include "OA.h"
 
 bool m_connected;
-int MyParallelServer::open(int port, ClientHandler *ch) {
+
+int MyParallelServer::open(int port, __attribute__((unused)) ClientHandler *ch) {
 
     int portNo, listenFd;
     struct sockaddr_in svrAdd, clntAdd;
     int connFd;
-    vector<thread*> vec_thread;
+    vector<thread *> vec_thread;
 
 
     portNo = port;
 
-    if((portNo > 65535) || (portNo < 2000))
-    {
+    if ((portNo > 65535) || (portNo < 2000)) {
         cerr << "Please enter a port number between 2000 - 65535" << endl;
         return 0;
     }
@@ -47,21 +47,19 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
     //create socket
     listenFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-    if(listenFd < 0)
-    {
+    if (listenFd < 0) {
         cerr << "Cannot open socket" << endl;
         return 0;
     }
 
-    bzero((char*) &svrAdd, sizeof(svrAdd));
+    bzero((char *) &svrAdd, sizeof(svrAdd));
 
     svrAdd.sin_family = AF_INET;
     svrAdd.sin_addr.s_addr = INADDR_ANY;
     svrAdd.sin_port = htons(portNo);
 
     //bind socket
-    if(bind(listenFd, (struct sockaddr *)&svrAdd, sizeof(svrAdd)) < 0)
-    {
+    if (bind(listenFd, (struct sockaddr *) &svrAdd, sizeof(svrAdd)) < 0) {
         cerr << "Cannot bind" << endl;
         return 0;
     }
@@ -70,39 +68,35 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
     m_connected = true;
     int noThread = 0;
 
-    while (m_connected)
-    {
+    while (m_connected) {
         socklen_t len = sizeof(clntAdd);
 
         cout << "Listening" << endl;
         struct timeval tv{};
         tv.tv_sec = 120;
-        setsockopt(listenFd, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv);
-        connFd = accept(listenFd, (struct sockaddr *)&clntAdd, &len);
+        setsockopt(listenFd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
+        connFd = accept(listenFd, (struct sockaddr *) &clntAdd, &len);
 
-        if (connFd < 0)
-        {
+        if (connFd < 0) {
             cerr << "Cannot accept connection" << endl;
             return 0;
-        }
-        else
-        {
+        } else {
             cout << "Connection successful" << endl;
         }
 
-        MyTestClientHandler* ch = new MyTestClientHandler();
+        MyTestClientHandler *chl = new MyTestClientHandler();
         //thread *t_var_command = new thread(&MyClientHandler::handleClient, ref(ch), connFd);
-       // ClientHandler* clientHandler = new MyTestClientHandler(new OA(new BestFirstSearch<string>), new FileCacheManager);
+        // ClientHandler* clientHandler = new MyTestClientHandler(new OA(new BestFirstSearch<string>), new FileCacheManager);
         //ClientHandler* clientHandler = ch->clone();
-        thread *t_ch = new thread(&ClientHandler::handleClient, ref(ch), connFd);
+        thread *t_ch = new thread(&ClientHandler::handleClient, ref(chl), connFd);
         vec_thread.push_back(t_ch);
         noThread++;
     }
-
-    for (int i = 0; i < vec_thread.size(); i++)
-    {
+    unsigned int i;
+    for (i = 0; i < vec_thread.size(); i++) {
         vec_thread[i]->join();
     }
+    return 0;
 }
 
 void MyParallelServer::stop() {
