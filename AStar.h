@@ -143,6 +143,7 @@ public:
             temp = *(temp.getDad());
             count++;
         }
+        this->counter=count;
         v.push_back(temp);
         int i;
         State<T> cur = *goal;

@@ -12,10 +12,10 @@
 static std::mutex m2;
 class MyTestClientHandler : public ClientHandler {
 private:
-    CasheManager* cm;
+//    CasheManager* cm;
 public:
     void handleClient(int socket) override;
-    MyTestClientHandler(CasheManager* cm);
+    MyTestClientHandler();
 };
 
 

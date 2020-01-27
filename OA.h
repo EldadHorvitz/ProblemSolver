@@ -25,15 +25,15 @@ public:
     }
 
     S solve(P *p) {
-        Searcher<Point, string> *BFS1 = new BFS<Point, string>();
-        Searcher<Point, string> *DFS1 = new DFS<Point, string>();
-        Searcher<Point, string> *BstFS1 = new BstFS<Point, string>();
-        Searcher<Point, string> *AStar1 = new AStar<Point, string>();
-        //string s1="BFS:\n"+BFS1->search(p)+"\n";
+        Searcher<Point, string> *BFS1= new BFS<Point, string>();
+        Searcher<Point, string> *DFS1= new DFS<Point, string>();
+        Searcher<Point, string> *BstFS1= new BstFS<Point, string>();
+        Searcher<Point, string> *AStar1=new AStar<Point, string>();
+      //  string s1="BFS:\n"+BFS1->search(p)+"\n";
         //string s2="DFS:\n"+DFS1->search(p)+"\n";
-        string s3="BstFS:\n"+BstFS1->search(p)+"\n";
-      //  string s4 = "AStar:\n" + AStar1->search(p) + "\n";
-        return s3;
+        //string s3="BstFS:\n"+BstFS1->search(p)+"\n";
+        string s4 = "AStar:\n" + AStar1->search(p) + "\n";
+        return s4;
     }
 };
 
