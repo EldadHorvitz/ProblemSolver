@@ -13,11 +13,12 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "CasheManager.h"
 
 namespace server_side {
     class Server {
     public:
-        virtual int open(int port, ClientHandler* client) = 0;
+        virtual int open(int port, ClientHandler* client, CasheManager* cm) = 0;
 
         virtual void stop() = 0;
 
