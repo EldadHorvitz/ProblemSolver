@@ -136,7 +136,7 @@ public:
         stringstream ss;
         ss << a;
         string str = ss.str();
-        solution1+=str+":\n";
+        //solution1+=str+"\n";
         v.push_back(temp);
         int i;
         State<T> cur= *goal;

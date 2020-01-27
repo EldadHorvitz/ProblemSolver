@@ -38,7 +38,7 @@ public:
             open.pop();
             n->setVisited(true);
             if (n->getState() == s->getGoal()->getState()) {
-                cout<<counter<<endl;
+              //  cout<<counter<<endl;
                 return getSolution(n, begin);
             }
             list<State<T> *> l = s->getNeighbours(n);
@@ -76,7 +76,7 @@ public:
         stringstream ss;
         ss << a;
         string str = ss.str();
-        solution1+=str+":\n";
+       // solution1+=str+"\n";
         v.push_back(temp);
         int i;
         State<T> cur = *goal;
@@ -98,9 +98,9 @@ public:
                 solution1 = solution1 + "Down (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getY() > pSon.getY()) {
                 solution1 = solution1 + "Left (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            } else if (pCur.getY() < pSon.getY()) {
+           } else if (pCur.getY() < pSon.getY()) {
                 solution1 = solution1 + "Right (" + to_string(int(v[i - 1].getCostSum())) + ")";
-            }
+           }
         }
         return solution1;
     }

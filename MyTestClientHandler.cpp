@@ -89,9 +89,21 @@ void MyTestClientHandler::handleClient(int socket) {
     Solver<Problem,string> *so;
     so=new OA<Problem,string>();
     solution=so->solve(problem);
+
     send(socket, solution.c_str(), solution.size(), 0);
-    cout << solution << endl;
-    return;;
+  //  cout << solution << endl;
+
+//    ofstream out_file;
+//    out_file.open( "BFSsum.txt", ios::app);
+//    if (!out_file) {
+//        cerr<< "file isn't open"<<endl;
+//    } else {
+//       // out_file << "solution:\n";
+//        out_file << solution;
+//        out_file << "\n";
+//        out_file.close();
+//    }
+    return;
 }
 
 
