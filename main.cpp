@@ -9,16 +9,16 @@ using namespace std;
 
 int main(int args, char *argv[]) {
 
-
-    ClientHandler *c = new MyTestClientHandler();
+    CasheManager *cm = new CasheManager();
+    ClientHandler *c = new MyTestClientHandler(cm);
     int port = 5600;
     try {
         port = stoi(argv[1]);
     } catch (exception e) {
 
     }
-    server_side::Server *s = new MyParallelServer();
-    s->open(port, c);
+    server_side::Server *s = new MySerialServer();
+    s->open(port, c, cm);
 
 
     return 0;

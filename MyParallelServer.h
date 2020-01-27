@@ -7,16 +7,17 @@
 
 
 #include "Server.h"
+#include "CasheManager.h"
 
 class MyParallelServer : public server_side::Server {
 public:
     MyParallelServer(){}
 
-    int open(int port, ClientHandler *client);
+    int open(int port, ClientHandler *client, CasheManager* cm);
+
+   // ~MyParallelServer() {}
 
     void stop() override;
-
-    virtual ~MyParallelServer();
 };
 
 

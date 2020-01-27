@@ -26,11 +26,9 @@ private:
     unsigned int size;
     unsigned int counter;
 public:
-    virtual ~Cashe();
-    Cashe();
-    bool count(P key);
-    void insert(P key, S obj);
-    S get(P key);
+    virtual bool count(P key) = 0;
+    virtual void insert(P key, S obj) = 0;
+    virtual S get(P key) = 0;
 
 
 };

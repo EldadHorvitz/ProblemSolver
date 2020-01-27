@@ -13,61 +13,69 @@ using namespace std;
 #include <vector>
 #include <list>
 #include <string>
-template<class T,class S>
-class DFS: public Searcher<T,S> {
+
+template<class T, class S>
+class DFS : public Searcher<T, S> {
 
 private:
     int counter;
 public:
 
-    DFS():counter(0) {}
+    DFS() : counter(0) {}
 
-    S search(Searchable<T>* s){
+    S search(Searchable<T> *s) {
         State<T>* begin=s->getInit();
-        stack <State<T>*> open;
-        begin->setCostSum(1);
+        State<T> erd=State<T>((Point) begin->getState(),begin->getCost());
+
+        stack < State<T> * > open;
+        begin->setCostSum(begin->getCost());
         open.push(begin);
         begin->setVisited(true);
-        while (!open.empty()){
+        while (!open.empty()) {
             counter++;
-            State<T> * n;
+            State<T> *n;
             n = open.top();
             open.pop();
             n->setVisited(true);
-            if (n->getState()==s->getGoal()->getState()){
+            if (n->getState() == s->getGoal()->getState()) {
                 cout<<counter<<endl;
-                return getSolution(n,begin);
+                return getSolution(n, begin);
             }
-            list<State<T>*> l=s->getNeighbours(n);
-            for (State<T>* s1:l){
-                if (!s1->isVisited()&&!has(open,s1)){
-                    s1->setCostSum(1+n->getCostSum());
+            list<State<T> *> l = s->getNeighbours(n);
+            for (State<T> *s1:l) {
+                if (!s1->isVisited()&&!has(open,s1)) {
+                    s1->setCostSum(s1->getCost()+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
-                    s1->setVisited(true);
                 }
 
             }
         }
 
     }
-    int getNumLength(){
+
+    int getNumLength() {
         return counter;
     }
-    string getSolution(State<T> *goal,State<T> *origin) {
+
+    string getSolution(State<T> *goal, State<T> *origin) {
         string solution1 = "";
-        vector < State<T>  > v;
+        vector<State<T> > v;
         State<T> temp = *goal;
         int count = 0;
-        while (!(temp.getState() == origin->getState())) {
+        Point tempp=(Point) temp.getState();
+        Point originp=(Point)  origin->getState();
+        while ((tempp.getX() != originp.getX() || (tempp.getY() != originp.getY()))) {
             v.push_back(temp);
             temp = *(temp.getDad());
             count++;
+            tempp=(Point) temp.getState();
         }
+        cout<<"num of solution:"<<count<<endl;
         v.push_back(temp);
         int i;
-        State<T> cur=*goal;
-        State<T> son=*goal;
+        State<T> cur = *goal;
+        State<T> son = *goal;
         bool f = true;
         for (i = count; i > 0; --i) {
             cur = v[i];
@@ -77,8 +85,8 @@ public:
             } else {
                 f = false;
             }
-            Point pCur = (Point ) cur.getState();
-            Point pSon = (Point ) son.getState();
+            Point pCur = (Point) cur.getState();
+            Point pSon = (Point) son.getState();
             if (pCur.getX() > pSon.getX()) {
                 solution1 = solution1 + "Up (" + to_string(int(v[i - 1].getCostSum())) + ")";
             } else if (pCur.getX() < pSon.getX()) {
@@ -91,9 +99,9 @@ public:
         }
         return solution1;
     }
-    bool has(queue<State<T> *> q, State<T> *s) {
+    bool has(stack<State<T> *> q, State<T> *s) {
         while (!q.empty()){
-            State<T> *temp=q.front();
+            State<T> *temp=q.top();
             if (temp->getState()==s->getState()){
                 return true;
             }
@@ -104,10 +112,6 @@ public:
 
 
 };
-
-
-
-
 
 
 #endif //EX4_DFS_H

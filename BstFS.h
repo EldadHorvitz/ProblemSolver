@@ -15,8 +15,15 @@ using namespace std;
 #include <string>
 template<class T,class S>
 class BstFS: public Searcher<T,S> {
+    class Comparer {
+    public:
+        bool operator()(State<Point> *s1,State<Point>* s2){
+            return (s1->getCostSum()>s2->getCostSum());
+        }
+    };
 
 private:
+
     int counter;
 public:
     virtual ~BstFS() {
@@ -27,22 +34,22 @@ public:
 
     S search(Searchable<T>* s){
         State<T>* begin=s->getInit();
-        queue <State<T>*> open;
+        priority_queue <State<T>*,vector<State<T>*>,Comparer> open;
         begin->setCostSum(begin->getCost());
         open.push(begin);
         queue <State<T>*> close;
         while (!open.empty()){
-            open=priority(open);
+           // open=priority(open);
             counter++;
-            State<T>* n=open.front();
+            State<T>* n=open.top();
             open.pop();
             close.push(n);
-            if (n->getState()==s->getGoal()->getState()){
+            if (n->getState()==s->getGoal()->getState()) {
                 return getSolution(n,begin);
             }
             list<State<T>*> l=s->getNeighbours(n);
             for (State<T>* s1:l){
-                if ((!has(open, s1))&&(!has(close, s1))){
+                if ((!has(open, s1))&&(!has2(close, s1))){
                     s1->setCostSum(s1->getCost()+n->getCostSum());
                     s1->setDad(n);
                     open.push(s1);
@@ -60,7 +67,17 @@ public:
 
     }
 
-    bool has(queue<State<T> *> q, State<T> *s) {
+    bool has(priority_queue <State<T>*,vector<State<T>*>,Comparer> q, State<T> *s) {
+        while (!q.empty()){
+            State<T> *temp=q.top();
+            if (temp->getState()==s->getState()){
+                return true;
+            }
+            q.pop();
+        }
+        return false;
+    }
+    bool has2(queue<State<T> *> q, State<T> *s) {
         while (!q.empty()){
             State<T> *temp=q.front();
             if (temp->getState()==s->getState()){

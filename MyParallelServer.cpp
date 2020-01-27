@@ -15,6 +15,8 @@
 #include <strings.h>
 #include "vector"
 #include "MyTestClientHandler.h"
+#include "CasheManager.h"
+#include "Cashe.h"
 
 using namespace std;
 
@@ -26,7 +28,7 @@ using namespace std;
 #include "OA.h"
 
 bool m_connected;
-int MyParallelServer::open(int port, ClientHandler *ch) {
+int MyParallelServer::open(int port, ClientHandler *ch, CasheManager* cm) {
 
     int portNo, listenFd;
     struct sockaddr_in svrAdd, clntAdd;
@@ -68,12 +70,14 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
     m_connected = true;
     int noThread = 0;
 
-    while (noThread < 10 && m_connected)
+    while (m_connected)
     {
         socklen_t len = sizeof(clntAdd);
 
         cout << "Listening" << endl;
-
+        struct timeval tv{};
+        tv.tv_sec = 120;
+        setsockopt(listenFd, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv);
         connFd = accept(listenFd, (struct sockaddr *)&clntAdd, &len);
 
         if (connFd < 0)
@@ -85,7 +89,8 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
         {
             cout << "Connection successful" << endl;
         }
-        MyTestClientHandler* ch = new MyTestClientHandler();
+
+        MyTestClientHandler* ch = new MyTestClientHandler(cm);
         //thread *t_var_command = new thread(&MyClientHandler::handleClient, ref(ch), connFd);
        // ClientHandler* clientHandler = new MyTestClientHandler(new OA(new BestFirstSearch<string>), new FileCacheManager);
         //ClientHandler* clientHandler = ch->clone();
@@ -94,7 +99,7 @@ int MyParallelServer::open(int port, ClientHandler *ch) {
         noThread++;
     }
 
-    for(int i = 0; i < vec_thread.size(); i++)
+    for (int i = 0; i < vec_thread.size(); i++)
     {
         vec_thread[i]->join();
     }
@@ -104,7 +109,3 @@ void MyParallelServer::stop() {
     m_connected = false;
 }
 
-
-MyParallelServer::~MyParallelServer() {
-
-}

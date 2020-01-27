@@ -9,18 +9,14 @@
 #include "Server.h"
 
 
-
 class MySerialServer : public server_side::Server {
 public:
     MySerialServer();
 
-    int open(int port, ClientHandler *client) ;
-
     void stop() override;
 
+    int open(int port, ClientHandler *client, CasheManager *cm) override;
 
-
-private:
 };
 
 

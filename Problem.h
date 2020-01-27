@@ -36,7 +36,6 @@ public:
 
     list<State<Point> *> getNeighbours(State<Point> *s) override;
 
-    virtual ~Problem();
 
 
 private:

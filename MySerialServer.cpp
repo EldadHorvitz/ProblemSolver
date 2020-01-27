@@ -65,11 +65,6 @@ int runServer(int port, ClientHandler *client) {
 }
 
 
-int MySerialServer::open(int port, ClientHandler *client) {
-    thread tc(runServer, port, client);
-    tc.join();
-
-}
 
 
 void MySerialServer::stop() {
@@ -79,3 +74,8 @@ void MySerialServer::stop() {
 
 MySerialServer::MySerialServer() {}
 
+int MySerialServer::open(int port, ClientHandler *client, CasheManager *cm) {
+    thread tc(runServer, port, client);
+    tc.join();
+    return 0;
+}

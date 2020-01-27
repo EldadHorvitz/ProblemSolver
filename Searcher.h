@@ -14,6 +14,7 @@ public:
     //returns how many states we passed until we reached the solution
     virtual int getNumLength()=0;
 
+
 };
 
 
