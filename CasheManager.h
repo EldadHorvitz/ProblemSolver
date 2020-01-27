@@ -16,7 +16,7 @@ using namespace std;
 #include "Problem.h"
 #include "Point.h"
 #include "Cashe.h"
-/*
+
 class CasheManager : public Cashe<string, string>  {
 private:
 
@@ -59,7 +59,7 @@ public:
                 }
                 newObj = STxt;
                 myMap->erase(myList->back());
-                myList->pop_back();
+              //  myList->pop_back();
                 myMap->insert({key, newObj});
                 myList->push_front(key);
                 return newObj;
@@ -124,7 +124,7 @@ public:
 
 
 };
- */
+
 
 
 #endif //EX4_CASHEMANAGER_H

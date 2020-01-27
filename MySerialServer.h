@@ -15,7 +15,7 @@ public:
 
     void stop() override;
 
-    int open(int port, ClientHandler *client) override;
+    int open(int port, ClientHandler *client,CasheManager* cm) override;
 
 };
 

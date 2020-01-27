@@ -16,8 +16,8 @@
 using namespace std;
 
 
-MyTestClientHandler :: MyTestClientHandler() {
-   // this->cm = cm;
+MyTestClientHandler :: MyTestClientHandler(CasheManager* cm1) {
+    this->cm = cm1;
 }
 
 void readFromClient(int socket) {
@@ -77,7 +77,7 @@ void MyTestClientHandler::handleClient(int socket) {
     }
 
     m2.unlock();
-/*
+
    if (cm->count(key)){
        solution=cm->get(key);
    }else{
@@ -85,11 +85,11 @@ void MyTestClientHandler::handleClient(int socket) {
        so=new OA<Problem,string>();
        solution=so->solve(problem);
        cm->insert(key,solution);
-   }*/
+   }/*
     Solver<Problem,string> *so;
     so=new OA<Problem,string>();
     solution=so->solve(problem);
-
+*/
     send(socket, solution.c_str(), solution.size(), 0);
   //  cout << solution << endl;
 
