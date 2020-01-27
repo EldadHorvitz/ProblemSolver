@@ -9,8 +9,8 @@ using namespace std;
 
 int main(int args, char *argv[]) {
 
-    CasheManager* cm =new CasheManager();
-    ClientHandler *c = new MyTestClientHandler(cm);
+   // CasheManager* cm =new CasheManager();
+    ClientHandler *c = new MyTestClientHandler();
     int port = 5600;
     try {
         port = stoi(argv[1]);
@@ -18,7 +18,7 @@ int main(int args, char *argv[]) {
 
     }
     server_side::Server *s = new MyParallelServer();
-    s->open(port, c, cm);
+    s->open(port, c);
 
 
     return 0;

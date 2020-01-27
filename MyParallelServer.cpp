@@ -28,7 +28,7 @@ using namespace std;
 #include "OA.h"
 
 bool m_connected;
-int MyParallelServer::open(int port, ClientHandler *ch, CasheManager* cm) {
+int MyParallelServer::open(int port, ClientHandler *ch) {
 
     int portNo, listenFd;
     struct sockaddr_in svrAdd, clntAdd;
@@ -90,7 +90,7 @@ int MyParallelServer::open(int port, ClientHandler *ch, CasheManager* cm) {
             cout << "Connection successful" << endl;
         }
 
-        MyTestClientHandler* ch = new MyTestClientHandler(cm);
+        MyTestClientHandler* ch = new MyTestClientHandler();
         //thread *t_var_command = new thread(&MyClientHandler::handleClient, ref(ch), connFd);
        // ClientHandler* clientHandler = new MyTestClientHandler(new OA(new BestFirstSearch<string>), new FileCacheManager);
         //ClientHandler* clientHandler = ch->clone();

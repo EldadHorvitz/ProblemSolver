@@ -16,7 +16,7 @@ using namespace std;
 #include "Problem.h"
 #include "Point.h"
 #include "Cashe.h"
-
+/*
 class CasheManager : public Cashe<string, string>  {
 private:
 
@@ -124,6 +124,7 @@ public:
 
 
 };
+ */
 
 
 #endif //EX4_CASHEMANAGER_H
