@@ -13,7 +13,7 @@ class MyParallelServer : public server_side::Server {
 public:
     MyParallelServer(){}
 
-    int open(int port, ClientHandler *client, CasheManager* cm);
+    int open(int port, ClientHandler *client);
 
    // ~MyParallelServer() {}
 

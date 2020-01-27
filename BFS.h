@@ -71,7 +71,12 @@ public:
             count++;
             tempp=(Point) temp.getState();
         }
-        cout<<"num of solution:"<<count<<endl;
+        this->counter=count;
+        int a =this->counter;
+        stringstream ss;
+        ss << a;
+        string str = ss.str();
+        solution1+=str+":\n";
         v.push_back(temp);
         int i;
         State<T> cur = *goal;
